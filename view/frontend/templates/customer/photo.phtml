@@ -1,0 +1,18 @@
+<?php
+$helper = $this->helper("Lof\SocialLogin\Helper\Data");
+$customer = $helper->getCustomer();
+?>
+<?php if ($customer->getId()) { ?>
+<?php
+$img = '';
+$type = $customer->getType();
+if($type){
+	$img = $helper->getCustomerPhoto($customer);
+}
+?>
+<?php if($img){ ?>
+<li>
+<img src="<?php echo $img; ?>" width="50" alt="<?php echo $type ?>-image" />
+</li>
+<?php } ?>
+<?php } ?>

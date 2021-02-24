@@ -1,0 +1,27 @@
+<?php 
+$data = $block->getDataSocial();
+if($data){
+$link = $block->getLinkSocial();  
+$dataCustomer = $this->getCustomer(); 
+$name = $dataCustomer->getFirstname().' '.$dataCustomer->getLastname();  
+?> 
+<div class="fieldset-wrapper customer-information">
+	<div class="fieldset-wrapper-title">
+		<span class="title"><?php /* @escapeNotVerified */ echo __('Social Login Information') ?></span>
+	</div>
+	<table class="admin__table-secondary">
+		<tbody>
+			<?php echo $block->getChildHtml(); ?>
+			<tr>
+				<th><?php /* @escapeNotVerified */ echo __('Social Logged In:') ?></th>
+				<td><?php /* @escapeNotVerified */ echo $data['type'] ?></td>
+			</tr> 
+			<tr>
+				<th><?php /* @escapeNotVerified */ echo __('Link Social:') ?></th>
+				<td><?php /* @escapeNotVerified */ echo '<a target="_blank" href='.$link.'>'.$name.'</a>' ?></td>
+			</tr> 
+		</tbody>
+	</table>  
+</div>
+<?php } ?>
+

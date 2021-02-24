@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * http://landofcoder.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder
+ * @package    Lof_SocialLogin
+ * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="lof_social_login" class="Lof\SocialLogin\Block\Widget\Login">
+		<label translate="true">Lof SocialLogin: Social Login</label>
+		<description translate="true">Show Social Login </description>
+		<parameters>
+			<parameter name="widget_title" xsi:type="text" visible="true"  >
+				<label translate="true">Title</label>
+			</parameter>
+			
+			<parameter name="show_social" xsi:type="multiselect" visible="true" source_model="Lof\SocialLogin\Model\Config\Source\ShowSocial">
+				<label translate="true">Show Social</label>
+			</parameter>
+			<parameter name="lg_column_item" xsi:type="text"  visible="true">
+				<label translate="true">Number Column on Large Desktop(Grid/List)</label>
+				<description translate="true"><![CDATA[Large devices Desktops (≥1200px). Use in grid layout and masonry layout]]></description> 
+			</parameter>
+			<parameter name="md_column_item" xsi:type="text"  visible="true">
+				<label translate="true">Number Column on Desktop(Grid/List)</label>
+			</parameter>
+			<parameter name="sm_column_item" xsi:type="text"  visible="true">
+				<label translate="true">Number Column on Tablets(Grid/List)</label> 
+				<description translate="true"><![CDATA[Small devices Tablets (≥768px)]]></description> 
+			</parameter>
+			<parameter name="xs_column_item" xsi:type="text"  visible="true">
+				<label translate="true">Number Column on Phones(Grid/List)</label>
+				<description translate="true"><![CDATA[Extra small devices Phones (<768px)]]></description> 
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

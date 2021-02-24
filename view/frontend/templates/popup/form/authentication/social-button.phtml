@@ -1,0 +1,51 @@
+<?php if ($block->isEnabled()):
+$helper = $this->helper('Lof\SocialLogin\Helper\Data');  
+$listSocial = $block->getAvailableSocials();
+
+$lg_column_item = $helper->getConfigValue('sociallogin/general/lg_column_item');
+$md_column_item = $helper->getConfigValue('sociallogin/general/md_column_item');
+$sm_column_item = $helper->getConfigValue('sociallogin/general/sm_column_item');
+$xs_column_item = $helper->getConfigValue('sociallogin/general/xs_column_item'); 
+
+$lg_column      = 12/$lg_column_item;
+$md_column      = 12/$md_column_item;
+$sm_column      = 12/$sm_column_item; 
+$xs_column      = 12/$xs_column_item; 
+ 
+$col = 'col-lg-'.$lg_column.' col-md-'.$md_column.' col-sm-'.$sm_column.' col-xs-'.$xs_column.'';
+foreach($listSocial as $key => $value) { ?>
+    <?php
+        $title        = $helper->getConfigValue('sociallogin/' . $value . '/title_social');
+        $id           = 'btn_' . $value . '_login_widget' . time();
+        $popup_width  = $helper->getConfigValue('sociallogin/' . $value . '/popup_width'); 
+        $popup_height = $helper->getConfigValue('sociallogin/' . $value . '/popup_height'); 
+    ?>
+    <div class="actions-toolbar social-btn <?php echo $value;?>-login <?php echo $col; ?>">
+        <div class="primary">
+            <button class="action" id="<?php echo $id; ?>" type="button" >
+                <span>
+                    <span><i class="fa fa-<?php echo $value;?> icon-social <?php echo $value;?>-icon" aria-hidden="true"></i><?php echo $title; ?></span>
+                </span> 
+            </button>
+        </div>
+        <script type="text/javascript">
+            require(['jquery', 'lof/sociallogin'], function ($, SocialLoginPopup) {
+                jQuery(document).ready(function($) {
+                    $(document).on('click', '#<?php echo $id; ?>', function(e) {
+                        e.preventDefault();
+                        var twPopup = new SocialLoginPopup(<?php echo $popup_width ?>, <?php echo $popup_height; ?>);
+                        twPopup.openPopup('<?php echo $block->getLoginUrl($value); ?>', '<?php echo __('Login')?>');
+                    });
+                });
+            });
+        </script> 
+    </div>
+<?php } ?> 
+
+<?php $authenConfig = $block->getSocialButtonsConfig(); ?>
+<?php if (sizeof($listSocial)): ?>
+    <script>
+        window.socialAuthenticationPopup = <?php /* @escapeNotVerified */ echo \Zend_Json::encode($authenConfig); ?>;
+    </script>
+<?php endif; ?>
+<?php endif; ?>

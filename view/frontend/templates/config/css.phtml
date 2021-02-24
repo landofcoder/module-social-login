@@ -1,0 +1,107 @@
+<?php  
+$style_color = $block->getStyleColor();
+$help          = $this->helper("Lof\SocialLogin\Helper\Data");
+$facebook      = $help->getStyleColorFacebook();
+$google        = $help->getStyleColorGoogle();
+$twitter       = $help->getStyleColorTwitter();
+$linkedin      = $help->getStyleColorLinkedin();
+$github        = $help->getStyleColorGithub();
+$instagram     = $help->getStyleColorInstagram();
+$wordpress     = $help->getStyleColorWordpress();
+$stackoverflow = $help->getStyleColorStackoverflow();
+$paypal        = $help->getStyleColorPaypal();
+$disqus        = $help->getStyleColorDisqus();
+$amazon        = $help->getStyleColorAmazon();
+$vimeo         = $help->getStyleColorVimeo();
+$pinterest     = $help->getStyleColorPinterest();
+$dropbox       = $help->getStyleColorDropbox();
+$soundcloud    = $help->getStyleColorSoundcloud();
+$windowslive   = $help->getStyleColorWindowslive();
+$foursquare    = $help->getStyleColorFoursquare();
+$twitch        = $help->getStyleColorTwitch();
+$slack        = $help->getStyleColorSlack();
+$weibo        = $help->getStyleColorWeibo();
+$wechat        = $help->getStyleColorWechat();
+
+?>
+<style>
+#social-login-popup .social-login-title {
+    background-color: <?php echo $style_color?>
+}
+#social-login-popup .social-login #bnt-social-login-authentication {
+    background-color: <?php echo $style_color?>;
+    border:<?php echo $style_color?>
+}
+#social-login-popup .forgot .primary button {
+    background-color: <?php echo $style_color?>;
+    border:<?php echo $style_color?>
+}
+#social-login-popup .create .primary button {
+    background-color: <?php echo $style_color?>;
+    border:<?php echo $style_color?>
+} 
+.lof-social-login-color .facebook-login button {
+    background : <?php echo $facebook?>;  
+} 
+.lof-social-login-color .google-login button {
+    background : <?php echo $google?>;  
+} 
+.lof-social-login-color .twitter-login button {
+    background : <?php echo $twitter?>;  
+} 
+.lof-social-login-color .linkedin-login button {
+    background : <?php echo $linkedin?>;  
+}
+.lof-social-login-color .github-login button {
+    background : <?php echo $github?>;  
+}
+.lof-social-login-color .instagram-login button {
+    background : <?php echo $instagram?>;  
+} 
+.lof-social-login-color .wordpress-login button {
+    background : <?php echo $wordpress?>;  
+}
+.lof-social-login-color .stackoverflow-login button {
+    background : <?php echo $stackoverflow?>;  
+}
+.lof-social-login-color .paypal-login button {
+    background : <?php echo $paypal?>;  
+}
+.lof-social-login-color .disqus-login button {
+    background : <?php echo $disqus?>;  
+}
+.lof-social-login-color .amazon-login button {
+    background : <?php echo $amazon?>;  
+}
+.lof-social-login-color .pinterest-login button {
+    background : <?php echo $pinterest?>;  
+}
+.lof-social-login-color .vimeo-login button {
+    background : <?php echo $vimeo?>;  
+}
+.lof-social-login-color .dropbox-login button {
+    background : <?php echo $dropbox?>;  
+} 
+.lof-social-login-color .soundcloud-login button {
+    background : <?php echo $soundcloud?>;  
+}
+.lof-social-login-color .windowslive-login button {
+    background : <?php echo $windowslive?>;
+}
+.lof-social-login-color .foursquare-login button {
+    background : <?php echo $foursquare?>;
+}
+.lof-social-login-color .twitch-login button {
+    background : <?php echo $twitch?>;
+}
+.lof-social-login-color .slack-login button {
+    background : <?php echo $slack?>;
+} 
+.lof-social-login-color .weibo-login button {
+    background : <?php echo $weibo?>;
+}  
+.lof-social-login-color .wechat-login button {
+    background : <?php echo $wechat?>;
+}
+<?php echo $block->getCustomCss() ?>
+</style>

@@ -1,0 +1,18 @@
+<!-- ko if: isActive() -->
+<div class="lof-social-login-widget lof-social-customer lof-social-login lof-social-login-color"> 
+	<div class="social-login-authentication-channel row" data-bind="foreach: socials()">
+		<div class="actions-toolbar social-btn col-lg-6 col-md-6 col-sm-12 col-xs-12" data-bind="css: label + '-login'">
+			<div class="primary" data-bind = "socialButton: $parent.isActive, url: login_url, label: label">
+				<button class="action" type="button" >  
+					<span>
+						<span ><i class="fa icon-social"  data-bind="css: 'fa-' + label +' '+label + '-icon'" aria-hidden="true" />
+							<!--ko text: title-->
+							<!--/ko-->
+						</span>   
+					</span>
+				</button>
+			</div> 
+		</div>
+	</div>  
+</div>  
+<!-- /ko --> 

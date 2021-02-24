@@ -1,0 +1,203 @@
+.adminhtml-system-config-edit .dd { position: relative; display: block; margin: 0; padding: 0; max-width: 600px; list-style: none; font-size: 13px; line-height: 20px; }
+.adminhtml-system-config-edit .dd-list { display: block; position: relative; margin: 0; padding: 0; list-style: none; }
+.adminhtml-system-config-edit .dd-list .dd-list { padding-left: 30px; }
+.adminhtml-system-config-edit .dd-collapsed .dd-list { display: none; }
+
+.adminhtml-system-config-edit .dd-item,
+.adminhtml-system-config-edit .dd-empty,
+.adminhtml-system-config-edit .dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 20px; }
+
+.adminhtml-system-config-edit .dd-handle {
+    display: block;
+    height: 30px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.adminhtml-system-config-edit .dd-handle:hover {cursor: pointer;}
+
+.adminhtml-system-config-edit .dd-item > button { display: block; position: relative; cursor: pointer; float: left; width: 25px; height: 20px; margin: 5px 0; padding: 0; text-indent: 100%; white-space: nowrap; overflow: hidden; border: 0; background: transparent; font-size: 12px; line-height: 1; text-align: center; font-weight: bold; }
+.dd-item > button:before { content: '+'; display: block; position: absolute; width: 100%; text-align: center; text-indent: 0; }
+.adminhtml-system-config-edit .lof-social-login .dd-item > button[data-action="collapse"]:before { content: '-'; }
+
+.adminhtml-system-config-edit .dd-placeholder,
+.adminhtml-system-config-edit .dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+.adminhtml-system-config-edit .dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+    -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+    linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+.adminhtml-system-config-edit .dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
+.adminhtml-system-config-edit .dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.adminhtml-system-config-edit .lof-social-login .dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+    box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+}
+.adminhtml-system-config-edit .nestable-lists {
+    float: left;
+    display: block;
+    clear: both;
+    width: 150%;
+    border: 2px solid #ddd;
+    padding: 10px;
+}
+
+.adminhtml-system-config-edit #nestable2-menu { padding: 0; margin: 20px 0; }
+
+.adminhtml-system-config-edit #nestable2-output,
+.adminhtml-system-config-edit #nestable-output { width: 100%; height: 7em; font-size: 0.75em; line-height: 1.333333em; font-family: Consolas, monospace; padding: 5px; box-sizing: border-box; -moz-box-sizing: border-box; }
+
+.adminhtml-system-config-edit #nestable .dd-handle {
+    color: #fff;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0%, #999 100%);
+    background:    -moz-linear-gradient(top, #bbb 0%, #999 100%);
+    background:         linear-gradient(top, #bbb 0%, #999 100%);
+}
+.adminhtml-system-config-edit #nestable .dd-item > button:before { color: #fff; }
+
+@media only screen and (min-width: 700px) {
+
+    .adminhtml-system-config-edit .dd { float: left; width: 48%; }
+    .adminhtml-system-config-edit .dd + .dd { margin-left: 2%; }
+
+}
+
+.adminhtml-system-config-edit .dd-hover > .dd-handle { background: #2ea8e5 !important; }
+#sociallogin_general_social_position{
+    display:none;
+}
+
+.facebook-login {
+    background : #3b5998;
+    color:#fff;
+}
+
+.google-login  {
+    background : #dd4b39;
+    color:#fff;
+}
+
+.twitter-login {
+    background : #00aced;
+    color:#fff;
+}
+.linkedin-login {
+    background : #3b5998;color:#fff;
+}
+.github-login{
+    background : #444444;color:#fff;
+}
+.instagram-login {
+    background : #517fa4;color:#fff;
+}
+
+.wordpress-login {
+    background : #21759b;color:#fff;
+}
+.stackoverflow-login{
+    background : #F48024;color:#fff;
+}
+.paypal-login {
+    background : #009CDE;color:#fff;
+}
+.disqus-login{
+    background : #2e9fff;color:#fff;
+}
+.amazon-login {
+    background : #F7991D;color:#fff;
+}
+.pinterest-login{
+    background : #CB2027;color:#fff;
+}
+.vimeo-login {
+    background : #1AB7EA;color:#fff;
+}
+.dropbox-login {
+    background : #1081DE;color:#fff;
+}
+.soundcloud-login {
+    background : #FE4604;color:#fff;
+}
+
+.windowslive-login{
+    background : #0078D7;color:#fff;
+}
+
+.foursquare-login{
+    background : #f94877;color:#fff;
+}
+
+.twitch-login{
+    background : #6441a4;color:#fff;
+}
+
+.slack-login{
+    background : #3aa3e3;color:#fff;
+}
+.weibo-login{
+    background : #f94877;color:#fff;
+}
+
+.wechat-login{
+    background : #44b549;color:#fff;
+}
+
+
+.dd_tittle{
+    font-weight: 700;
+}
+
+
+.lof-social-login .widget-title{
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.lof-social-login .actions-toolbar {
+    margin-bottom: 12px;
+}
+.lof-social-login .actions-toolbar button {
+    border-radius: 0;
+}
+
+
+.lof-social-login .dd-item span {
+    color: #ffffff;
+}
+.lof-social-login #nestable2 .dd-item:hover{
+    transition-delay: 5;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.lof-social-login .icon-social{
+    color: white;
+    font-size: 1.3em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    float: left;
+    margin-left: -5px;
+    padding-right: 8px
+}
+.lof-social-login .fa-disqus:before{
+    content: "\f27b";
+}
+.lof-social-login .fa-stackoverflow:before{
+    content: "\f16c";
+}
+.lof-social-login .dd-item {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+.lof-social-login .dd-item.primary{
+    width: 100%;
+}

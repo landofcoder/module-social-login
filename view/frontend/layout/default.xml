@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * http://landofcoder.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder
+ * @package    Lof_SocialLogin
+ * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Lof_All::lib/bootstrap/css/bootstrap-tiny.css" />
+        <css src="Lof_SocialLogin::css/style.css"/>
+        <css src="Lof_SocialLogin::css/bootstrap-grid.css"/>
+        <css src="Lof_SocialLogin::css/magnific-popup.css"/>
+        <css src="Lof_SocialLogin::css/font-awesome.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Lof\SocialLogin\Block\SocialLogin" name="social-login-popup" as="popup.modal" template="popup.phtml" cacheable="false">
+                <block class="Lof\SocialLogin\Block\Popup\Authentication" name="social-login-popup-authentication" as="popup.authentication" template="popup/form/authentication.phtml" cacheable="false">   
+                    <block class="Lof\SocialLogin\Block\SocialLogin\Social" name="social-login-popup-authentication-social" as="popup.authentication.social" template="popup/form/authentication/social-button.phtml"/>
+                </block> 
+                <block class="Lof\SocialLogin\Block\Popup\Create" name="social-login-popup-create" as="popup.create" template="popup/form/create.phtml"> 
+                </block>
+                <block class="Lof\SocialLogin\Block\Popup\Forgot" name="social-login-popup-forgot" as="popup.forgot" template="popup/form/forgot.phtml"> 
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="head.additional"> 
+            <block class="Lof\SocialLogin\Block\SocialLogin" name="social_login_custom_style" template="Lof_SocialLogin::config/css.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Template" name="lofsociallogin.customer.photo" as="lofcustomer_logo" before="customer">
+                <action ifconfig="sociallogin/general/is_enabled" method="setTemplate">
+                    <argument name="template" xsi:type="string">Lof_SocialLogin::customer/photo.phtml</argument>
+                </action>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="authentication-popup">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="authenticationPopup" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="social-buttons" xsi:type="array">
+                                    <item name="component" xsi:type="string">Lof_SocialLogin/js/sociallogin/social-buttons</item>
+                                    <item name="displayArea" xsi:type="string">additional-login-form-fields</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array"> 
+                            <item name="children" xsi:type="array"> 
+                                <item name="authentication" xsi:type="array"> 
+                                    <item name="children" xsi:type="array"> 
+                                        <item name="social-checkout" xsi:type="array">
+                                            <item name="sortOrder" xsi:type="string">2</item>
+                                            <item name="component" xsi:type="string">Lof_SocialLogin/js/sociallogin/social-buttons</item>
+                                            <item name="displayArea" xsi:type="string">additional-login-form-fields</item>
+                                        </item> 
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

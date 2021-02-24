@@ -1,0 +1,7 @@
+{
+	"name": "lof/sociallogin-lib",
+	"description": "lof social login libraries which was used for magento 2 extension Lof_SocialLogin",
+	"require": {},
+	"type": "library",
+	"version": "1.0.0"
+}

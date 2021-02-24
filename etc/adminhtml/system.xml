@@ -1,0 +1,699 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * http://landofcoder.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder
+ * @package    Lof_SocialLogin
+ * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="landofcoder" translate="label" sortOrder="400">
+            <label><![CDATA[<a href="https://landofcoder.com" target="_BLANK" title=""Magento Marketplace, Opencart Marketplace, Magento 2 Extension, Free Magento Extension, Opencart Advanced Reports">landofcoder.com</a>]]></label>
+        </tab>
+        <section id="sociallogin" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Social Login</label>
+            <tab>landofcoder</tab>
+            <resource>Lof_SocialLogin::sociallogin</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="popup_effect" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Effect</label>
+                    <source_model>Lof\SocialLogin\Model\System\Config\Source\Effect</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="social_position" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Social Button Position</label>  
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Social</frontend_model>
+                </field>
+                <field id="custom_css" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom CSS</label>
+                </field>
+                <field id="redirect_page" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Reload URL</label>
+                </field>
+                <field id="lg_column_item" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Column on Large Desktop</label>
+                    <comment><![CDATA[Large devices Desktops (≥1200px). Use in grid layout and masonry layout]]></comment>
+                    <source_model>Lof\SocialLogin\Model\Config\Source\Gridcolumns</source_model>
+                </field>
+                <field id="md_column_item" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Column on Desktop</label>
+                    <comment><![CDATA[Medium devices Desktops (≥992px)]]></comment>
+                    <source_model>Lof\SocialLogin\Model\Config\Source\Gridcolumns</source_model>
+                </field>
+                <field id="sm_column_item" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Column on Tablets</label>
+                    <source_model>Lof\SocialLogin\Model\Config\Source\Gridcolumns</source_model>
+                    <comment><![CDATA[Small devices Tablets (≥768px)]]></comment>
+                </field> 
+                <field id="xs_column_item" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Column on Phones</label>
+                    <source_model>Lof\SocialLogin\Model\Config\Source\Gridcolumns</source_model>
+                    <comment><![CDATA[Small devices Tablets (≥480px)]]></comment>
+                </field> 
+                <field id="popup_layout" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Layout</label>
+                    <source_model>Lof\SocialLogin\Model\Config\Source\PopupLayout</source_model>
+                </field>
+                <field id="header_link" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Link</label> 
+                </field>
+            </group>
+            <group id="facebook" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Facebook</label> 
+                <field id="app_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App Id</label>
+                    <comment><![CDATA[Register at : <href="https://developers.facebook.com/apps/?action=create" target="_blank">https://developers.facebook.com/apps/?action=create</a>]]></comment>
+                </field>
+                <field id="app_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App Secret</label>
+                </field> 
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="google" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://cloud.google.com/console]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field> 
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="twitter" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Twitter</label>
+                <field id="consumer_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Consumer Key</label>
+                    <comment><![CDATA[Register at : https://apps.twitter.com/app/new]]></comment>
+                </field>
+                <field id="consumer_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Consumer Secret</label>
+                </field> 
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>            
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="wordpress" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Wordpress</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://developer.wordpress.com/apps]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="instagram" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Instagram</label> 
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://www.instagram.com/developer/clients/register/]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field> 
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="linkedin" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>LinkedIn</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <comment><![CDATA[Register at : https://www.linkedin.com/developer/apps]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Key</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="github" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Github</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://github.com/settings/applications]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="stackoverflow" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Stackoverflow</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : http://stackapps.com/apps/oauth/]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Key</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="paypal" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Paypal</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://developer.paypal.com/developer/applications]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="disqus" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Disqus</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <comment><![CDATA[Register at : https://disqus.com/api/applications]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="amazon" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Amazon</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://sellercentral.amazon.com/gp/homepage.html]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="pinterest" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pinterest</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://developers.pinterest.com/apps/]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="vimeo" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Vimeo</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://developer.vimeo.com/apps]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="dropbox" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Dropbox</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App key</label>
+                    <comment><![CDATA[Register at : https://www.dropbox.com/developers/apps]]></comment> 
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="soundcloud" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Soundcloud</label> 
+                <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : http://soundcloud.com/you/apps]]></comment>
+                </field>
+                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="windowslive" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Windows Live</label>
+                <field id="app_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application Id</label>
+                    <comment><![CDATA[Register at : https://apps.dev.microsoft.com/]]></comment>
+                </field>
+                <field id="app_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="foursquare" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Foursquare</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://foursquare.com/developers/apps]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="twitch" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Twitch</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://www.twitch.tv/kraken/oauth2/clients/new]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="slack" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Slack</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Register at : https://api.slack.com/apps]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="weibo" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Weibo</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Key</label>
+                    <comment><![CDATA[Register at : http://open.weibo.com/apps]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+            <group id="wechat" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Wechat</label>
+                <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App ID</label>
+                    <comment><![CDATA[Register at : https://open.weixin.qq.com/cgi-bin/frame?t=home/web_tmpl&lang=zh_CN]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Secret</label>
+                </field>
+                <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Password To Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Style Management</label>
+                    <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="title_social" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="popup_width" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Width</label>
+                    <comment><![CDATA[Default : 800px]]></comment>
+                </field>
+                <field id="popup_height" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Height</label>
+                    <comment><![CDATA[Default : 600px]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

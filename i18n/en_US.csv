@@ -1,0 +1,136 @@
+"Login Activities","Login Activities"
+"Login success !!!","Login success !!!"
+"Please make sure your passwords match.","Please make sure your passwords match."
+"You must confirm your account. Please check your email for the confirmation link or <a href=""%1"">click here</a> for a new link.","You must confirm your account. Please check your email for the confirmation link or <a href=""%1"">click here</a> for a new link."
+"Create an account successfully. Please wait...","Create an account successfully. Please wait..."
+"There is already an account with this email address. If you are sure that it is your email address, <a href=""%1"">click here</a> to get your password and access your account.","There is already an account with this email address. If you are sure that it is your email address, <a href=""%1"">click here</a> to get your password and access your account."
+"Please correct the email address.","Please correct the email address."
+"If there is an account associated with %1 you will receive an email with a link to reset your password.","If there is an account associated with %1 you will receive an email with a link to reset your password."
+"We're unable to send the password reset email.","We're unable to send the password reset email."
+"Login successfully. Please wait ...","Login successfully. Please wait ..."
+"Please enter a username and password.","Please enter a username and password."
+Facebook,Facebook
+Twitter,Twitter
+Google,Google
+Amazon,Amazon
+Linkedin,Linkedin
+Github,Github
+Instagram,Instagram
+Wordpress,Wordpress
+Stackoverflow,Stackoverflow
+Paypal,Paypal
+Disqus,Disqus
+Pinterest,Pinterest
+Vimeo,Vimeo
+Dropbox,Dropbox
+Soundcloud,Soundcloud
+Default,Default
+Orange,Orange
+Green,Green
+Black,Black
+Blue,Blue
+"Dark Blue","Dark Blue"
+Pink,Pink
+Red,Red
+Violet,Violet
+Custom,Custom
+Zoom,Zoom
+Newspaper,Newspaper
+"Horizontal move","Horizontal move"
+"Move from top","Move from top"
+"3D unfold","3D unfold"
+Zoom-out,Zoom-out
+"Social Login Information","Social Login Information"
+"Social Logged In:","Social Logged In:"
+"Link Social:","Link Social:"
+"Social Login Chart","Social Login Chart"
+"Customer Login","Customer Login"
+OR,OR
+"Registered Customers","Registered Customers"
+"If you have an account, sign in with your email address.","If you have an account, sign in with your email address."
+"* Required Fields","* Required Fields"
+Email,Email
+Password,Password
+"Sign In","Sign In"
+"Forgot Your Password?","Forgot Your Password?"
+"Create An Account?","Create An Account?"
+"Or Sign In With","Or Sign In With"
+Login,Login
+"Connect with","Connect with"
+"Login By Amazon","Login By Amazon"
+"Login By Disqus","Login By Disqus"
+"Login By Dropbox","Login By Dropbox"
+"Login By Facebook","Login By Facebook"
+"Login By Github","Login By Github"
+"Login By Google","Login By Google"
+"Login By Instagram","Login By Instagram"
+"Login By Linkedin","Login By Linkedin"
+"Login By Paypal","Login By Paypal"
+"Login By Pinterest","Login By Pinterest"
+"Login By Soundcloud","Login By Soundcloud"
+"Login By Stackoverflow","Login By Stackoverflow"
+"Login By Twitter","Login By Twitter"
+"Login By Vimeo","Login By Vimeo"
+"Login By Wordpress","Login By Wordpress"
+"Create New Account","Create New Account"
+"New Customers","New Customers"
+"Sign Up for Newsletter","Sign Up for Newsletter"
+"Address Information","Address Information"
+Company,Company
+"Phone Number","Phone Number"
+"Street Address","Street Address"
+Address,Address
+"Street Address %1","Street Address %1"
+City,City
+State/Province,State/Province
+"Please select a region, state or province.","Please select a region, state or province."
+"Zip/Postal Code","Zip/Postal Code"
+Country,Country
+"Confirm Password","Confirm Password"
+"Create an Account","Create an Account"
+Back,Back
+"Forgot Password","Forgot Password"
+"Please enter your email address below to receive a password reset link.","Please enter your email address below to receive a password reset link."
+"Reset My Password","Reset My Password"
+"Go back","Go back"
+"' . . '","' . . '"
+"Ves All - <a href=""http://landofcoder.com"" target=""_BLANK"" title=""""Magento Marketplace, Opencart Marketplace, Magento 2 Extension, Free Magento Extension, Opencart Advanced Reports"">landofcoder.com</a>","Ves All - <a href=""http://landofcoder.com"" target=""_BLANK"" title=""""Magento Marketplace, Opencart Marketplace, Magento 2 Extension, Free Magento Extension, Opencart Advanced Reports"">landofcoder.com</a>"
+"Social Login","Social Login"
+General,General
+Enable,Enable
+"Popup Effect","Popup Effect"
+"Style Management","Style Management"
+"Social Button Position","Social Button Position"
+"Custom CSS","Custom CSS"
+"Reload URL","Reload URL"
+"Number Column on Large Desktop","Number Column on Large Desktop"
+"Large devices Desktops (≥1200px). Use in grid layout and masonry layout","Large devices Desktops (≥1200px). Use in grid layout and masonry layout"
+"Number Column on Desktop","Number Column on Desktop"
+"Medium devices Desktops (≥992px)","Medium devices Desktops (≥992px)"
+"Number Column on Tablets","Number Column on Tablets"
+"Small devices Tablets (≥768px)","Small devices Tablets (≥768px)"
+"Number Column on Phones","Number Column on Phones"
+"Small devices Tablets (≥480px)","Small devices Tablets (≥480px)"
+"Popup Layout","Popup Layout"
+"Facebook App Id","Facebook App Id"
+"Facebook App Secret","Facebook App Secret"
+"Send Password To Customer","Send Password To Customer"
+Title,Title
+"Client ID","Client ID"
+"Client Secret","Client Secret"
+"Consumer Key","Consumer Key"
+"Consumer Secret","Consumer Secret"
+LinkedIn,LinkedIn
+"API Key","API Key"
+"Client Key","Client Key"
+Key,Key
+"API Secret","API Secret"
+"App key","App key"
+"App secret","App secret"
+"Lof SocialLogin: Social Login","Lof SocialLogin: Social Login"
+"Show Social Login ","Show Social Login "
+"Number Column on Large Desktop(Grid/List)","Number Column on Large Desktop(Grid/List)"
+"Number Column on Desktop(Grid/List)","Number Column on Desktop(Grid/List)"
+"Number Column on Tablets(Grid/List)","Number Column on Tablets(Grid/List)"
+"Number Column on Phones(Grid/List)","Number Column on Phones(Grid/List)"
+"Extra small devices Phones (<768px)","Extra small devices Phones (<768px)"

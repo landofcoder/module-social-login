@@ -1,0 +1,421 @@
+<?php
+$helper      = $this->helper("Lof\SocialLogin\Helper\Data");
+$social_enable = json_decode($helper->getSocialPosition());
+$list_social = array();
+foreach ($social_enable as $key => $value) {
+    array_push($list_social,$value->id);
+}
+
+$helper = $this->helper('Lof\SocialLogin\Helper\Data');
+$style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
+
+     switch ($style_popup) { 
+        case 'lof-social-login-style1': 
+        ?>
+        <div class="social-login block-container authentication">
+            <div class="social-login-title">
+                <h2 class="login-title">
+                    <?php echo __('Customer Login') ?>
+                </h2>
+            </div>
+            <div class="block social-login-authentication-channel col-mg col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
+                <div class="block-content social-list">
+                    <?php 
+                    echo $block->getChildHtml('popup.authentication.social');
+                    ?>
+                </div>
+            </div>
+            <div class="social-login-hr"></div>
+            <span class ="social-line-or"><?php echo __('OR'); ?></span>
+            <div class="block social-login-customer-authentication col-mg col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="block-title">
+                    <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                        echo __('Registered Customers') ?></span>
+                    </div>
+                    <div class="block-details">
+                        <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                            echo __('If you have an account, sign in with your email address.') ?></span>
+                        </div>
+                        <div class="block-content" aria-labelledby="popup-block-customer-login-heading">
+                            <form class="form-customer-login"
+                            id="social-form-login"
+                            data-mage-init='{"validation":{}}'>
+                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                            echo __('* Required Fields') ?>">
+                            <div class="field email required">
+                                <label class="label" for="popup-email"><span><?php /* @escapeNotVerified */
+                                    echo __('Email') ?></span></label>
+
+                                    <div class="control">
+                                        <input name="username"
+                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                                        echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                                    </div>
+                                </div>
+                                <div class="field password required">
+                                    <label for="pass" class="label"><span><?php /* @escapeNotVerified */
+                                        echo __('Password') ?></span></label>
+
+                                        <div class="control">
+                                            <input name="password"
+                                            type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>r
+                                            class="input-text" id="popup-pass" title="<?php /* @escapeNotVerified */
+                                            echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
+                                        </div>
+                                    </div>
+                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <div>
+                                        <div class="actions-toolbar">
+                                            <div class="primary">
+                                                <button type="button" class="action login primary" id="bnt-social-login-authentication" style="width: 150px;">
+                                                    <span><?php /* @escapeNotVerified */    
+                                                        echo __('Sign In') ?></span></button>
+                                                    </div>
+                                                    <div class="secondary forgot"><a class="action remind" href="#"><span><?php /* @escapeNotVerified */
+                                                        echo __('Forgot Your Password?') ?></span></a>   </div> 
+                                                        <div class="secondary create"><a class="action create" href="#"><span><?php /* @escapeNotVerified */
+                                                            echo __('Create An Account?') ?></span></a></div>
+                                                        </div> 
+                                                        <div class="actions-toolbar">
+
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div> 
+
+                                </div> 
+        <?php
+        break;
+        case 'lof-social-login-style2': 
+        ?> 
+        <div class="social-login block-container authentication">
+            <div class="social-login-title">
+                <h2 class="login-title">
+                    <?php echo __('Customer Login') ?>
+                </h2>
+            </div> 
+            <div class="block social-login-customer-authentication col-mg mg-12">
+                <div class="block-title">
+                    <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                        echo __('Registered Customers') ?></span>
+                    </div>
+                    <div class="block-details">
+                        <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                            echo __('If you have an account, sign in with your email address.') ?></span>
+                        </div>
+                        <div class="block-content" aria-labelledby="popup-block-customer-login-heading">
+                            <form class="form-customer-login"
+                            id="social-form-login"
+                            data-mage-init='{"validation":{}}'>
+                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                            echo __('* Required Fields') ?>">
+                            <div class="field email required">
+                                <label class="label" for="popup-email"><span><?php /* @escapeNotVerified */
+                                    echo __('Email') ?></span></label>
+
+                                    <div class="control">
+                                        <input name="username"
+                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                                        echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                                    </div>
+                                </div>
+                                <div class="field password required">
+                                    <label for="popup-pass" class="label"><span><?php /* @escapeNotVerified */
+                                        echo __('Password') ?></span></label>
+
+                                        <div class="control">
+                                            <input name="password"
+                                            type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>r
+                                            class="input-text" id="popup-pass" title="<?php /* @escapeNotVerified */
+                                            echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
+                                        </div>
+                                    </div>
+                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <div>
+                                        <div class="actions-toolbar">
+                                            <div class="primary">
+                                                <button type="button" class="action login primary" id="bnt-social-login-authentication" style="width: 150px;">
+                                                    <span><?php /* @escapeNotVerified */
+                                                        echo __('Sign In') ?></span></button>
+                                                    </div>
+                                                    <div class="secondary forgot"><a class="action remind" href="#"><span><?php /* @escapeNotVerified */
+                                                        echo __('Forgot Your Password?') ?></span></a>   </div> 
+                                                        <div class="secondary create"><a class="action create" href="#"><span><?php /* @escapeNotVerified */
+                                                            echo __('Create An Account?') ?></span></a></div>
+                                                        </div> 
+                                                        <div class="actions-toolbar">
+
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div> 
+                                    <div class="block social-login-authentication-channel col-mg mg-12">
+                                        <div class="block-title">
+                                            <?php echo __('Or Sign In With') ?>
+                                        </div>
+                                        <div class="block-content">
+                                            <?php 
+                                                echo $block->getChildHtml('popup.authentication.social');
+                                            ?>
+                                        </div>
+                                    </div> 
+                                </div> 
+        <?php
+        break;
+        case 'lof-social-login-style3': 
+        ?> 
+        <div class="social-login block-container authentication">
+            <div class="social-login-title">
+                <h2 class="login-title">
+                    <?php echo __('Customer Login') ?>
+                </h2>
+            </div> 
+            <div class="block social-login-customer-authentication col-mg col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="block-title">
+                    <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                        echo __('Registered Customers') ?></span>
+                    </div>
+                    <div class="block-details">
+                        <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                            echo __('If you have an account, sign in with your email address.') ?></span>
+                        </div>
+                        <div class="block-content" aria-labelledby="popup-block-customer-login-heading">
+                            <form class="form-customer-login"
+                            id="social-form-login"
+                            data-mage-init='{"validation":{}}'>
+                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                            echo __('* Required Fields') ?>">
+                            <div class="field email required">
+                                <label class="label" for="popup-email"><span><?php /* @escapeNotVerified */
+                                    echo __('Email') ?></span></label>
+
+                                    <div class="control">
+                                        <input name="username"
+                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                                        echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                                    </div>
+                                </div>
+                                <div class="field password required">
+                                    <label for="pass" class="label"><span><?php /* @escapeNotVerified */
+                                        echo __('Password') ?></span></label>
+
+                                        <div class="control">
+                                            <input name="popup-password"
+                                            type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>r
+                                            class="input-text" id="popup-pass" title="<?php /* @escapeNotVerified */
+                                            echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
+                                        </div>
+                                    </div>
+                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <div>
+                                        <div class="actions-toolbar">
+                                            <div class="primary">
+                                                <button type="button" class="action login primary" id="bnt-social-login-authentication" >
+                                                    <span><?php /* @escapeNotVerified */
+                                                        echo __('Sign In') ?></span></button>
+                                                    </div>
+                                                    <div class="secondary forgot"><a class="action remind" href="#"><span><?php /* @escapeNotVerified */
+                                                        echo __('Forgot Your Password?') ?></span></a>   </div> 
+                                                        <div class="secondary create"><a class="action create" href="#"><span><?php /* @escapeNotVerified */
+                                                            echo __('Create An Account?') ?></span></a></div>
+                                                        </div> 
+                                                        <div class="actions-toolbar">
+
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div> 
+                                    <div class="social-login-hr"></div>
+                                    <span class ="social-line-or"><?php echo __('OR'); ?></span>
+                                    <div class="block social-login-authentication-channel col-mg col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
+                                        <div class="block-content">
+                                            <?php 
+                                                echo $block->getChildHtml('popup.authentication.social');
+                                            ?>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+        <?php
+        break;
+        case 'lof-social-login-style4': 
+        ?>
+        <div class="social-login block-container authentication">
+            <div class="social-login-title">
+                <h2 class="login-title">
+                    <?php echo __('Login') ?>
+                </h2>
+            </div> 
+            <div class="block social-login-authentication-channel col-mg mg-12">
+                <div class="block-title">
+                    <?php echo __('Connect with') ?>
+                </div>
+                <div class="block-content">
+                    <div class="row">
+                    <?php 
+                        echo $block->getChildHtml('popup.authentication.social');
+                    ?>
+                    </div>
+                </div>
+            </div>
+            <div class="social-line">
+            <div class="social-login-hr"></div>
+            <span class ="social-line-or"><?php echo __('OR'); ?></span>
+            </div>
+            <div class="block social-login-customer-authentication col-mg mg-12"> 
+                    <div class="block-details">
+                        <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                            echo __('If you have an account, sign in with your email address.') ?></span>
+                        </div>
+                        <div class="block-content" aria-labelledby="popup-block-customer-login-heading">
+                            <form class="form-customer-login"
+                            id="social-form-login"
+                            data-mage-init='{"validation":{}}'>
+                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                            echo __('* Required Fields') ?>">
+                            <div class="field email required">
+                                <label class="label" for="popup-email"><span><?php /* @escapeNotVerified */
+                                    echo __('Email') ?></span></label>
+
+                                    <div class="control">
+                                        <input name="username"
+                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                                        echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                                    </div>
+                                </div>
+                                <div class="field password required">
+                                    <label for="popup-pass" class="label"><span><?php /* @escapeNotVerified */
+                                        echo __('Password') ?></span></label>
+
+                                        <div class="control">
+                                            <input name="password"
+                                            type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>r
+                                            class="input-text" id="popup-pass" title="<?php /* @escapeNotVerified */
+                                            echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
+                                        </div>
+                                    </div>
+                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <div>
+                                        <div class="actions-toolbar">
+                                            <div class="primary">
+                                                <button type="button" class="action login primary" id="bnt-social-login-authentication" style="width: 150px;">
+                                                    <span><?php /* @escapeNotVerified */
+                                                        echo __('Sign In') ?></span></button>
+                                                    </div>
+                                                    <div class="secondary forgot"><a class="action remind" href="#"><span><?php /* @escapeNotVerified */
+                                                        echo __('Forgot Your Password?') ?></span></a>   </div> 
+                                                        <div class="secondary create"><a class="action create" href="#"><span><?php /* @escapeNotVerified */
+                                                            echo __('Create An Account?') ?></span></a></div>
+                                                        </div> 
+                                                        <div class="actions-toolbar">
+
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>  
+                                </div>
+
+        <?php
+        break;
+        default:
+        ?>
+ <div class="social-login block-container authentication">
+            <div class="social-login-title">
+                <h2 class="login-title">
+                    <?php echo __('Customer Login') ?>
+                </h2>
+            </div>
+            <div class="block social-login-authentication-channel col-mg col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
+                <div class="block-content social-list">
+                    <?php 
+                        echo $block->getChildHtml('popup.authentication.social');
+                    ?>
+                </div>
+            </div>
+            <div class="social-login-hr"></div>
+            <span class ="social-line-or"><?php echo __('OR'); ?></span>
+            <div class="block social-login-customer-authentication col-mg col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="block-title">
+                    <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                        echo __('Registered Customers') ?></span>
+                    </div>
+                    <div class="block-details">
+                        <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
+                            echo __('If you have an account, sign in with your email address.') ?></span>
+                        </div>
+                        <div class="block-content" aria-labelledby="popup-block-customer-login-heading">
+                            <form class="form-customer-login"
+                            id="social-form-login"
+                            data-mage-init='{"validation":{}}'>
+                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                            echo __('* Required Fields') ?>">
+                            <div class="field email required">
+                                <label class="label" for="popup-email"><span><?php /* @escapeNotVerified */
+                                    echo __('Email') ?></span></label>
+
+                                    <div class="control">
+                                        <input name="username"
+                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                                        echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                                    </div>
+                                </div>
+                                <div class="field password required">
+                                    <label for="popup-pass" class="label"><span><?php /* @escapeNotVerified */
+                                        echo __('Password') ?></span></label>
+
+                                        <div class="control">
+                                            <input name="password"
+                                            type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>r
+                                            class="input-text" id="popup-pass" title="<?php /* @escapeNotVerified */
+                                            echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
+                                        </div>
+                                    </div>
+                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <div>
+                                        <div class="actions-toolbar">
+                                            <div class="primary">
+                                                <button type="button" class="action login primary" id="bnt-social-login-authentication" style="width: 150px;">
+                                                    <span><?php /* @escapeNotVerified */
+                                                        echo __('Sign In') ?></span></button>
+                                                    </div>
+                                                    <div class="secondary forgot"><a class="action remind" href="#"><span><?php /* @escapeNotVerified */
+                                                        echo __('Forgot Your Password?') ?></span></a>   </div> 
+                                                        <div class="secondary create"><a class="action create" href="#"><span><?php /* @escapeNotVerified */
+                                                            echo __('Create An Account?') ?></span></a></div>
+                                                        </div> 
+                                                        <div class="actions-toolbar">
+
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div> 
+
+                                </div> 
+        <?php
+        break; 
+    } 
+?>
+

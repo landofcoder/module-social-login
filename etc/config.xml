@@ -1,0 +1,187 @@
+<!--
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * http://landofcoder.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder
+ * @package    Lof_SocialLogin
+ * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sociallogin>
+            <general>
+                <is_enabled>1</is_enabled>
+                <popup_effect>mfp-move-from-top</popup_effect>
+                <style_management>#1979c3</style_management>
+                <social_position>[{"id":"facebook"},{"id":"github"},{"id":"stackoverflow"},{"id":"twitter"},{"id":"google"},{"id":"amazon"}]</social_position>
+                <popup_layout>lof-social-login-style4</popup_layout>
+                <lg_column_item>3</lg_column_item>
+                <md_column_item>3</md_column_item>
+                <sm_column_item>2</sm_column_item>
+                <xs_column_item>1</xs_column_item>
+                <header_link>.header.links</header_link>
+            </general>
+            <facebook> 
+                <send_password>0</send_password>
+                <style_management>#3b5998</style_management>
+                <title_social>Facebook</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </facebook>
+            <google> 
+                <send_password>0</send_password>
+                <style_management>#dd4b39</style_management>
+                <title_social>Google</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </google>
+            <wordpress> 
+                <send_password>0</send_password>
+                <style_management>#21759b</style_management>
+                <title_social>Wordpress</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </wordpress>
+            <instagram> 
+                <send_password>0</send_password>
+                <style_management>#517fa4</style_management>
+                <title_social>Instagram</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </instagram>
+            <twitter> 
+                <send_password>0</send_password>
+                <style_management>#00aced</style_management>
+                <title_social>Twitter</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </twitter>
+            <linkedin> 
+                <send_password>0</send_password>
+                <style_management>#3b5998</style_management>
+                <title_social>Linkedin</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </linkedin>
+            <github> 
+                <send_password>0</send_password>
+                <style_management>#444444</style_management>
+                <title_social>Github</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </github>
+            <stackoverflow> 
+                <send_password>0</send_password>
+                <style_management>#F48024</style_management>
+                <title_social>Stackoverflow</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </stackoverflow>
+            <paypal> 
+                <send_password>0</send_password>
+                <style_management>#009CDE</style_management>
+                <title_social>Paypal</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </paypal>
+            <disqus> 
+                <send_password>0</send_password>
+                <style_management>#2e9fff</style_management>
+                <title_social>Disqus</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </disqus>
+            <amazon> 
+                <send_password>0</send_password>
+                <style_management>#F7991D</style_management>
+                <title_social>Amazon</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </amazon>
+            <pinterest> 
+                <send_password>0</send_password>
+                <style_management>#CB2027</style_management>
+                <title_social>Pinterest</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </pinterest>
+            <vimeo> 
+                <send_password>0</send_password>
+                <style_management>#1AB7EA</style_management>
+                <title_social>Vimeo</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </vimeo>
+            <dropbox> 
+                <send_password>0</send_password>
+                <style_management>#1081DE</style_management>
+                <title_social>Dropbox</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </dropbox>
+            <soundcloud> 
+                <send_password>0</send_password>
+                <style_management>#FE4604</style_management>
+                <title_social>Soundcloud</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </soundcloud>
+            <windowslive>
+                <send_password>0</send_password>
+                <style_management>#0078d7</style_management>
+                <title_social>Windows Live</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </windowslive>
+            <slack>
+                <send_password>0</send_password>
+                <style_management>#3aa3e3</style_management>
+                <title_social>Slack</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </slack>
+            <twitch>
+                <send_password>0</send_password>
+                <style_management>#6441a4</style_management>
+                <title_social>Twitch</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </twitch>
+            <foursquare>
+                <send_password>0</send_password>
+                <style_management>#f94877</style_management>
+                <title_social>Foursquare</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </foursquare>
+            <weibo>
+                <send_password>0</send_password>
+                <style_management>#f94877</style_management>
+                <title_social>Weibo</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </weibo>
+            <wechat>
+                <send_password>0</send_password>
+                <style_management>#44b549</style_management>
+                <title_social>Wechat</title_social>
+                <popup_width>800</popup_width>
+                <popup_height>600</popup_height>
+            </wechat>
+        </sociallogin>
+    </default>
+</config>

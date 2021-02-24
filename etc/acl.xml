@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * http://landofcoder.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder
+ * @package    Lof_SocialLogin
+ * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::social_elements" title="Lof SocialLogin">
+                    <resource id="Lof_SocialLogin::report_social" title="Report" sortOrder="10"> 
+                        <resource id="Lof_SocialLogin::report_view" title="View Report" sortOrder="10" />
+                    </resource>
+                    <resource id="Lof_SocialLogin::sociallogin" title="Settings" sortOrder="10">
+                        <resource id="Lof_AdvancedReports::sociallogin_view" title="View Settings" sortOrder="10" /> 
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Lof_SocialLogin::sociallogin_config" title="Social Login"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

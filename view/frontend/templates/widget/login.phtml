@@ -1,0 +1,90 @@
+<?php
+$helper        = $this->helper("Lof\SocialLogin\Helper\Data");
+$social_enable = json_decode($helper->getSocialPosition());
+$show_social   = $this->getConfig('show_social');
+
+$list_social   = array();
+
+if(empty($show_social)) { 
+	foreach ($social_enable as $key => $value) {
+		array_push($list_social,$value->id);
+	}   
+}else { 
+	$list_show_social = array();
+	foreach ($social_enable as $key => $value) {
+		array_push($list_show_social,$value->id);
+	}
+	$_list_social = array();
+	$list_social = explode(',', $show_social);
+	$count = count($list_show_social);
+	foreach ($list_social as $value) {
+		if(in_array($value, $list_show_social)) {
+			$key = array_search($value, $list_show_social);
+			$_list_social[$key] = $value;
+		} else {
+			$count ++;
+			$_list_social[$count] = $value;
+		}	
+	}
+	$list_social = $_list_social;
+	ksort($list_social);
+} 
+
+$lg_column_item = (int)$this->getConfig('lg_column_item',4);
+$md_column_item = (int)$this->getConfig('md_column_item',4);
+$sm_column_item = (int)$this->getConfig('sm_column_item',3);
+$xs_column_item = (int)$this->getConfig('xs_column_item',2);
+$lg_column      = 12/$lg_column_item;
+$md_column      = 12/$md_column_item;
+$sm_column      = 12/$sm_column_item; 
+$xs_column      = 12/$xs_column_item;
+$widget_title   = $this->getConfig('widget_title');
+
+$objectManager   = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+$helper          = $this->helper('Lof\SocialLogin\Helper\Data');
+
+if(!$customerSession->isLoggedIn()) {
+	?>
+	<?php if($social_enable){ ?>
+	<div class="lof-social-login-widget lof-social-login-color block social-login-authentication-channel">
+		<?php if ($widget_title) { ?>
+		<div class="widget-title">
+			<?php echo __(''.$widget_title.'') ?>
+		</div>
+		<?php } ?>
+		<div class="widget-content">
+			<div class="row">
+				<?php foreach($list_social as $key => $value) { ?>
+				<?php
+				$title        = $helper->getConfigValue('sociallogin/' . $value . '/title_social');
+				$id           = 'btn_' . $value . '_login_widget' . time();
+				$popup_width  = $helper->getConfigValue('sociallogin/' . $value . '/popup_width'); 
+				$popup_height = $helper->getConfigValue('sociallogin/' . $value . '/popup_height'); 
+				?>
+				<div class="actions-toolbar social-btn <?php echo $value;?>-login col-lg-<?php echo $lg_column;?> col-md-<?php echo $md_column?> col-sm-<?php echo $sm_column; ?> col-xs-<?php echo $xs_column; ?>">
+					<div class="primary">
+						<button class="action" id="<?php echo $id; ?>" type="button" >
+							<span>
+								<span><i class="fa fa-<?php echo $value;?> icon-social <?php echo $value;?>-icon" aria-hidden="true"></i><?php echo $title; ?></span>
+							</span> 
+						</button>
+					</div>
+					<script type="text/javascript">
+						require(['jquery', 'lof/sociallogin'], function ($, SocialLoginPopup) {
+							jQuery(document).ready(function($) {
+								$(document).on('click', '#<?php echo $id; ?>', function(e) {
+									e.preventDefault();
+									var twPopup = new SocialLoginPopup(<?php echo $popup_width ?>, <?php echo $popup_height; ?>);
+									twPopup.openPopup('<?php echo $block->getLoginUrl($value); ?>', '<?php echo __('Login')?>');
+								});
+							});
+						});
+					</script> 
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+	<?php } 
+}?>

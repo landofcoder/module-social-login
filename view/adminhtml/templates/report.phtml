@@ -1,0 +1,70 @@
+<?php 
+$sum_social = $block->getSumSocial();
+if($sum_social && is_object($sum_social)) {
+$list_social = $sum_social->getData();
+$count = count($sum_social);   
+$socialNetworks = $block->getlistSocialNetworks();
+$results = [];
+foreach ($socialNetworks as $k => $v) {
+	foreach ($list_social as $_user) {
+		if($_user['type'] === $k){
+			$results[$k]['users'][] = $_user;
+			$results[$k]['y'] = count($results[$k]['users'])/$count; 
+			$results[$k]['name']  = $v;
+		}
+	}
+} 
+$items = array();
+foreach ($results as $key => $value) {
+	unset($value['users']);
+	array_push($items,$value);
+} 
+
+$data = json_encode($items);
+?>
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script>
+	require([
+		'jquery',
+		'Lof_SocialLogin/js/highcharts' 
+		], function(){
+			jQuery(document).ready(function() {  
+				jQuery('#container').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false,
+						type: 'pie'
+					},
+					title: {
+						text: '<?php echo __('Social Login Chart') ?>'
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+								style: {
+									color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+							}
+						}
+					},
+					series: [{
+						name: 'Total',
+						colorByPoint: true,
+						data: <?php echo $data;?>
+					}]
+				});
+			});
+		});
+	</script>
+<?php } else {
+	echo __("Not Found Any Records!");
+	} ?>
