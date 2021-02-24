@@ -2,18 +2,18 @@
 <!--
 /**
  * Landofcoder
- * 
+ *
  * NOTICE OF LICENSE
- * 
+ *
  * This source file is subject to the Landofcoder.com license that is
  * available through the world-wide-web at this URL:
  * http://landofcoder.com/license
- * 
+ *
  * DISCLAIMER
- * 
+ *
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
- * 
+ *
  * @category   Landofcoder
  * @package    Lof_SocialLogin
  * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
@@ -23,7 +23,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="landofcoder" translate="label" sortOrder="400">
-            <label><![CDATA[<a href="https://landofcoder.com" target="_BLANK" title=""Magento Marketplace, Opencart Marketplace, Magento 2 Extension, Free Magento Extension, Opencart Advanced Reports">landofcoder.com</a>]]></label>
+            <label>Landofcoder</label>
         </tab>
         <section id="sociallogin" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
@@ -45,7 +45,7 @@
                     <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
                 </field>
                 <field id="social_position" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Social Button Position</label>  
+                    <label>Social Button Position</label>
                     <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Social</frontend_model>
                 </field>
                 <field id="custom_css" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -68,29 +68,29 @@
                     <label>Number Column on Tablets</label>
                     <source_model>Lof\SocialLogin\Model\Config\Source\Gridcolumns</source_model>
                     <comment><![CDATA[Small devices Tablets (≥768px)]]></comment>
-                </field> 
+                </field>
                 <field id="xs_column_item" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Number Column on Phones</label>
                     <source_model>Lof\SocialLogin\Model\Config\Source\Gridcolumns</source_model>
                     <comment><![CDATA[Small devices Tablets (≥480px)]]></comment>
-                </field> 
+                </field>
                 <field id="popup_layout" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Popup Layout</label>
                     <source_model>Lof\SocialLogin\Model\Config\Source\PopupLayout</source_model>
                 </field>
                 <field id="header_link" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Header Link</label> 
+                    <label>Header Link</label>
                 </field>
             </group>
             <group id="facebook" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Facebook</label> 
+                <label>Facebook</label>
                 <field id="app_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Facebook App Id</label>
                     <comment><![CDATA[Register at : <href="https://developers.facebook.com/apps/?action=create" target="_blank">https://developers.facebook.com/apps/?action=create</a>]]></comment>
                 </field>
                 <field id="app_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Facebook App Secret</label>
-                </field> 
+                </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Send Password To Customer</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -119,7 +119,7 @@
                 </field>
                 <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
-                </field> 
+                </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Send Password To Customer</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -148,11 +148,11 @@
                 </field>
                 <field id="consumer_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Consumer Secret</label>
-                </field> 
+                </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Send Password To Customer</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>            
+                </field>
                 <field id="style_management" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Style Management</label>
                     <frontend_model>Lof\SocialLogin\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
@@ -199,14 +199,14 @@
                 </field>
             </group>
             <group id="instagram" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Instagram</label> 
+                <label>Instagram</label>
                 <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://www.instagram.com/developer/clients/register/]]></comment>
                 </field>
                 <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
-                </field> 
+                </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Send Password To Customer</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -228,7 +228,7 @@
                 </field>
             </group>
             <group id="linkedin" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>LinkedIn</label> 
+                <label>LinkedIn</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>API Key</label>
                     <comment><![CDATA[Register at : https://www.linkedin.com/developer/apps]]></comment>
@@ -257,7 +257,7 @@
                 </field>
             </group>
             <group id="github" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Github</label> 
+                <label>Github</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://github.com/settings/applications]]></comment>
@@ -286,7 +286,7 @@
                 </field>
             </group>
             <group id="stackoverflow" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Stackoverflow</label> 
+                <label>Stackoverflow</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : http://stackapps.com/apps/oauth/]]></comment>
@@ -318,7 +318,7 @@
                 </field>
             </group>
             <group id="paypal" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Paypal</label> 
+                <label>Paypal</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://developer.paypal.com/developer/applications]]></comment>
@@ -347,7 +347,7 @@
                 </field>
             </group>
             <group id="disqus" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Disqus</label> 
+                <label>Disqus</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>API Key</label>
                     <comment><![CDATA[Register at : https://disqus.com/api/applications]]></comment>
@@ -376,7 +376,7 @@
                 </field>
             </group>
             <group id="amazon" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Amazon</label> 
+                <label>Amazon</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://sellercentral.amazon.com/gp/homepage.html]]></comment>
@@ -405,7 +405,7 @@
                 </field>
             </group>
             <group id="pinterest" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Pinterest</label> 
+                <label>Pinterest</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://developers.pinterest.com/apps/]]></comment>
@@ -434,7 +434,7 @@
                 </field>
             </group>
             <group id="vimeo" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Vimeo</label> 
+                <label>Vimeo</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://developer.vimeo.com/apps]]></comment>
@@ -463,10 +463,10 @@
                 </field>
             </group>
             <group id="dropbox" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Dropbox</label> 
+                <label>Dropbox</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>App key</label>
-                    <comment><![CDATA[Register at : https://www.dropbox.com/developers/apps]]></comment> 
+                    <comment><![CDATA[Register at : https://www.dropbox.com/developers/apps]]></comment>
                 </field>
                 <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>App secret</label>
@@ -492,7 +492,7 @@
                 </field>
             </group>
             <group id="soundcloud" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Soundcloud</label> 
+                <label>Soundcloud</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : http://soundcloud.com/you/apps]]></comment>
