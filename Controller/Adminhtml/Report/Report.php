@@ -25,24 +25,30 @@ namespace Lof\SocialLogin\Controller\Adminhtml\Report;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Report extends \Magento\Backend\App\Action
-{
+/**
+ * Class Report
+ *
+ * @package Lof\SocialLogin\Controller\Adminhtml\Report
+ */
+class Report extends \Magento\Backend\App\Action {
     /**
      * @var PageFactory
      */
     protected $resultPageFactory;
 
     /**
-     * @param Context $context
+     * @param Context     $context
      * @param PageFactory $resultPageFactory
      */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
     }
+
     /**
      * Check the permission to run it
      *
@@ -63,6 +69,7 @@ class Report extends \Magento\Backend\App\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Lof_SocialLogin::report_social');
         $resultPage->getConfig()->getTitle()->prepend(__('Login Activities'));
+
         return $resultPage;
     }
 }
