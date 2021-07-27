@@ -41,9 +41,9 @@ class Slack
         $_SESSION['wpcc_state_slack'] = $wpcc_state;
         $url_to = 'https://slack.com/oauth/authorize' . '?' . http_build_query([
                 'client_id'     => $this->dataHelper->getAppId(),
-                'scope'         => 'users.profile:read',
-                'redirect_uri'  => $this->dataHelper->getAuthUrl()
+                'scope'         => 'users.profile:read'
             ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

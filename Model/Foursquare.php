@@ -41,9 +41,9 @@ class Foursquare
         $_SESSION['wpcc_state_foursquare'] = $wpcc_state;
         $url_to = 'https://foursquare.com/oauth2/authenticate' . '?' . http_build_query([
                 'client_id'     => $this->dataHelper->getAppId(),
-                'response_type' => 'code',
-                'redirect_uri'  => $this->dataHelper->getAuthUrl()
+                'response_type' => 'code'
             ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

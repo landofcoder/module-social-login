@@ -28,10 +28,14 @@ class Amazon
 {
 
     protected $dataHelper;
+    protected $storemanagerInterface;
 
-    public function __construct(DataHelper $dataHelper)
+    public function __construct(
+        DataHelper $dataHelper,
+        \Magento\Store\Model\StoreManagerInterface $storemanagerInterface
+    )
     {
-
+        $this->storemanagerInterface = $storemanagerInterface;
         $this->dataHelper = $dataHelper;
     }
   
@@ -43,18 +47,17 @@ class Amazon
         'response_type' => 'code',
         'client_id'     => $this->dataHelper->getApiKey(),
         'state'         => $wpcc_state,
-        'redirect_uri'  => $this->getBaseUrl(),
         'scope'         => 'profile'
         ]);
+        $url_to .= '&redirect_uri='.$this->getBaseUrl();
         return $url_to;
     }
     public function getBaseUrl()
     {
-        $objectmanager     = \Magento\Framework\App\ObjectManager::getInstance();
-        $helper = $objectmanager->get('Magento\Store\Model\StoreManagerInterface')
+        $baseUrl = $this->storemanagerInterface
         ->getStore()
         ->getBaseUrl();
 
-        return $helper.'lofsociallogin/amazon/callback';
+        return $baseUrl.'lofsociallogin/amazon/callback';
     }
 }

@@ -26,8 +26,6 @@ use Lof\SocialLogin\Helper\Wechat\Data as DataHelper;
 
 class Wechat
 {
-
- 
     protected $dataHelper;
     public function __construct(DataHelper $dataHelper)
     {
@@ -42,9 +40,9 @@ class Wechat
         'response_type' => 'code',
         'appid'     => $this->dataHelper->getApiKey(),
         'state'         => $wpcc_state,
-        'redirect_uri'  => $this->dataHelper->getAuthUrl(),
         'scope'         => 'snsapi_login'
         ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

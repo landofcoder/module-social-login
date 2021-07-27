@@ -41,9 +41,9 @@ class Weibo
         $url_to = 'https://api.weibo.com/oauth2/authorize' . '?' . http_build_query([
         'response_type' => 'code',
         'client_id'     => $this->dataHelper->getApiKey(),
-        'state'         => $wpcc_state,
-        'redirect_uri'  => $this->dataHelper->getAuthUrl()
+        'state'         => $wpcc_state
         ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

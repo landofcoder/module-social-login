@@ -26,7 +26,6 @@ use Lof\SocialLogin\Helper\Paypal\Data as DataHelper;
 
 class Paypal
 {
-
     protected $dataHelper;
 
     public function __construct(DataHelper $dataHelper)
@@ -43,9 +42,9 @@ class Paypal
         'response_type' => 'code',
         'client_id'     => $this->dataHelper->getApiKey(),
         'state'         => $wpcc_state,
-        'redirect_uri'  => $this->dataHelper->getAuthUrl(),
         'scope'         => 'openid profile email'
         ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }
