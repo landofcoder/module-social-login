@@ -50,7 +50,7 @@
                 </field>
                 <field id="redirect_page" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Reload URL</label>
-                    <comment>Add URL of the page after loggin account with social completely. Example: https://yourdomain/customer/dashboard</comment>
+                    <comment>Add URL of the page after loggin account with social completely. Example: https://yourdomain/customer/account/</comment>
                 </field>
                 <field id="lg_column_item" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Number Column on Large Desktop</label>
@@ -171,7 +171,11 @@
                 <label>Wordpress</label>
                 <field id="client_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
-                    <comment><![CDATA[Register at : https://developer.wordpress.com/apps]]></comment>
+                    <comment><![CDATA[
+                    Register at : https://developer.wordpress.com/apps
+                    <br>
+                    Config Call back url: https://[yourdomain]/lofsociallogin/wordpress/callback
+                    ]]></comment>
                 </field>
                 <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
