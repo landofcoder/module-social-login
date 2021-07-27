@@ -55,7 +55,8 @@ class Data extends HelperData
 
     public function getAuthUrl()
     {
-        return $this->_getUrl('lofsociallogin/instagram/callback', ['_secure' => $this->isSecure()]);
+        $url = $this->_getUrl('lofsociallogin/instagram/callback', ['_secure' => $this->isSecure()]);
+        return str_replace("/index.php", "", $url);
     }
 
     public function getUrl($path)

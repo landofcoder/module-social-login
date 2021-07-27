@@ -50,6 +50,7 @@ class Data extends HelperData
 
     public function getAuthUrl()
     {
-        return $this->_getUrl('lofsociallogin/dropbox/callback', ['_secure' => $this->isSecure()]);
+        $url = $this->_getUrl('lofsociallogin/dropbox/callback', ['_secure' => $this->isSecure()]);
+        return str_replace("/index.php", "", $url);
     }
 }

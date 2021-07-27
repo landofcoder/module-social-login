@@ -26,7 +26,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\ObjectManagerInterface;
 use Lof\SocialLogin\Helper\Data as HelperData;
-use Magento\Customer\Model\Session as CustomerSession;
+use Magento\Customer\Model\SessionFactory as CustomerSession;
 
 class SocialLogin extends Template
 {
@@ -97,7 +97,11 @@ class SocialLogin extends Template
 
     public function isEnabled()
     {
-        return $this->helperData->isEnabled() && !$this->_customerSession->isLoggedIn();
+        return $this->helperData->isEnabled() && !$this->_customerSession->create()->isLoggedIn();
+    }
+
+    public function getCustomerSession(){
+        return $this->_customerSession->create();
     }
 
     public function getStyleColor()
