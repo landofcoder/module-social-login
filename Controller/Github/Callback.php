@@ -157,7 +157,7 @@ class Callback extends Action
             }
             $this->session->setCustomerDataAsLoggedIn($customer);
             $this->messageManager->addSuccess(__('Login successful.'));
-            $this->session->regenerateId(); 
+            $this->session->regenerateId();
             $this->_eventManager->dispatch('customer_data_object_login', ['customer' => $customer]);
             $this->_eventManager->dispatch('customer_login', ['customer' => $customer1]);
 
