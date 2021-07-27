@@ -262,7 +262,11 @@
                 <label>Github</label>
                 <field id="api_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client ID</label>
-                    <comment><![CDATA[Register at : https://github.com/settings/applications]]></comment>
+                    <comment><![CDATA[
+                    Register at : https://github.com/settings/applications
+                    <br/>
+                    Call back url: https://[yourdomain]/lofsociallogin/github/callback
+                    ]]></comment>
                 </field>
                 <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
