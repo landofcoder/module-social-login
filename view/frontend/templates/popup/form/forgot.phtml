@@ -1,7 +1,7 @@
 <div class="social-login block-container forgot" style="display:none">
     <div class="social-login-title">
         <h2 class="forgot-pass-title">
-            <?php echo __('Forgot Password') ?>
+            <?= __('Forgot Password') ?>
         </h2>
     </div>
     <div class="block col-mg mg-12"> 
@@ -19,12 +19,12 @@
 
                         <div class="control">
                             <input type="email" name="email" alt="email" id="email_address" class="input-text"
-                            value="<?php echo $block->escapeHtml($block->getEmailValue()) ?>"
+                            value="<?= $block->escapeHtml($block->getEmailValue()) ?>"
                             data-validate="{required:true, 'validate-email':true}">
                         </div>
                     </div>
-                    <?php echo $block->getChildHtml('form_additional_info'); ?>
-                    <?php echo $block->getChildHtml('forgot.captcha'); ?>
+                    <?= $block->getChildHtml('form_additional_info'); ?>
+                    <?= $block->getChildHtml('forgot.captcha'); ?>
 
                 </fieldset>
                 <div class="actions-toolbar">

@@ -15,7 +15,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
         <div class="social-login block-container authentication">
             <div class="social-login-title">
                 <h2 class="login-title">
-                    <?php echo __('Customer Login') ?>
+                    <?= __('Customer Login') ?>
                 </h2>
             </div>
             <div class="block social-login-authentication-channel col-mg col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
@@ -26,7 +26,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                 </div>
             </div>
             <div class="social-login-hr"></div>
-            <span class ="social-line-or"><?php echo __('OR'); ?></span>
+            <span class ="social-line-or"><?= __('OR'); ?></span>
             <div class="block social-login-customer-authentication col-mg col-lg-7 col-md-7 col-sm-12 col-xs-12">
                 <div class="block-title">
                     <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
@@ -40,7 +40,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                             <form class="form-customer-login"
                             id="social-form-login"
                             data-mage-init='{"validation":{}}'>
-                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <?= $block->getBlockHtml('formkey'); ?>
                             <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
                             echo __('* Required Fields') ?>">
                             <div class="field email required">
@@ -49,7 +49,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
 
                                     <div class="control">
                                         <input name="username"
-                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
                                         id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
                                         echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
                                     </div>
@@ -65,7 +65,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                             echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
                                         </div>
                                     </div>
-                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <?= $block->getChildHtml('form_additional_info'); ?> 
                                     <div>
                                         <div class="actions-toolbar">
                                             <div class="primary">
@@ -95,7 +95,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
         <div class="social-login block-container authentication">
             <div class="social-login-title">
                 <h2 class="login-title">
-                    <?php echo __('Customer Login') ?>
+                    <?= __('Customer Login') ?>
                 </h2>
             </div> 
             <div class="block social-login-customer-authentication col-mg mg-12">
@@ -111,7 +111,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                             <form class="form-customer-login"
                             id="social-form-login"
                             data-mage-init='{"validation":{}}'>
-                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <?= $block->getBlockHtml('formkey'); ?>
                             <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
                             echo __('* Required Fields') ?>">
                             <div class="field email required">
@@ -120,7 +120,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
 
                                     <div class="control">
                                         <input name="username"
-                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
                                         id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
                                         echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
                                     </div>
@@ -136,7 +136,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                             echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
                                         </div>
                                     </div>
-                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <?= $block->getChildHtml('form_additional_info'); ?> 
                                     <div>
                                         <div class="actions-toolbar">
                                             <div class="primary">
@@ -159,7 +159,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                     </div> 
                                     <div class="block social-login-authentication-channel col-mg mg-12">
                                         <div class="block-title">
-                                            <?php echo __('Or Sign In With') ?>
+                                            <?= __('Or Sign In With') ?>
                                         </div>
                                         <div class="block-content">
                                             <?php 
@@ -175,7 +175,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
         <div class="social-login block-container authentication">
             <div class="social-login-title">
                 <h2 class="login-title">
-                    <?php echo __('Customer Login') ?>
+                    <?= __('Customer Login') ?>
                 </h2>
             </div> 
             <div class="block social-login-customer-authentication col-mg col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -191,7 +191,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                             <form class="form-customer-login"
                             id="social-form-login"
                             data-mage-init='{"validation":{}}'>
-                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <?= $block->getBlockHtml('formkey'); ?>
                             <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
                             echo __('* Required Fields') ?>">
                             <div class="field email required">
@@ -200,7 +200,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
 
                                     <div class="control">
                                         <input name="username"
-                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
                                         id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
                                         echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
                                     </div>
@@ -216,7 +216,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                             echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
                                         </div>
                                     </div>
-                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <?= $block->getChildHtml('form_additional_info'); ?> 
                                     <div>
                                         <div class="actions-toolbar">
                                             <div class="primary">
@@ -238,7 +238,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                         </div>
                                     </div> 
                                     <div class="social-login-hr"></div>
-                                    <span class ="social-line-or"><?php echo __('OR'); ?></span>
+                                    <span class ="social-line-or"><?= __('OR'); ?></span>
                                     <div class="block social-login-authentication-channel col-mg col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
                                         <div class="block-content">
                                             <?php 
@@ -258,12 +258,12 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
         <div class="social-login block-container authentication">
             <div class="social-login-title">
                 <h2 class="login-title">
-                    <?php echo __('Login') ?>
+                    <?= __('Login') ?>
                 </h2>
             </div> 
             <div class="block social-login-authentication-channel col-mg mg-12">
                 <div class="block-title">
-                    <?php echo __('Connect with') ?>
+                    <?= __('Connect with') ?>
                 </div>
                 <div class="block-content">
                     <div class="row">
@@ -275,7 +275,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
             </div>
             <div class="social-line">
             <div class="social-login-hr"></div>
-            <span class ="social-line-or"><?php echo __('OR'); ?></span>
+            <span class ="social-line-or"><?= __('OR'); ?></span>
             </div>
             <div class="block social-login-customer-authentication col-mg mg-12"> 
                     <div class="block-details">
@@ -286,7 +286,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                             <form class="form-customer-login"
                             id="social-form-login"
                             data-mage-init='{"validation":{}}'>
-                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <?= $block->getBlockHtml('formkey'); ?>
                             <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
                             echo __('* Required Fields') ?>">
                             <div class="field email required">
@@ -295,7 +295,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
 
                                     <div class="control">
                                         <input name="username"
-                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
                                         id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
                                         echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
                                     </div>
@@ -311,7 +311,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                             echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
                                         </div>
                                     </div>
-                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <?= $block->getChildHtml('form_additional_info'); ?> 
                                     <div>
                                         <div class="actions-toolbar">
                                             <div class="primary">
@@ -341,7 +341,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
  <div class="social-login block-container authentication">
             <div class="social-login-title">
                 <h2 class="login-title">
-                    <?php echo __('Customer Login') ?>
+                    <?= __('Customer Login') ?>
                 </h2>
             </div>
             <div class="block social-login-authentication-channel col-mg col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
@@ -352,7 +352,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                 </div>
             </div>
             <div class="social-login-hr"></div>
-            <span class ="social-line-or"><?php echo __('OR'); ?></span>
+            <span class ="social-line-or"><?= __('OR'); ?></span>
             <div class="block social-login-customer-authentication col-mg col-lg-7 col-md-7 col-sm-12 col-xs-12">
                 <div class="block-title">
                     <span id="popup-block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
@@ -366,7 +366,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                             <form class="form-customer-login"
                             id="social-form-login"
                             data-mage-init='{"validation":{}}'>
-                            <?php echo $block->getBlockHtml('formkey'); ?>
+                            <?= $block->getBlockHtml('formkey'); ?>
                             <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
                             echo __('* Required Fields') ?>">
                             <div class="field email required">
@@ -375,7 +375,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
 
                                     <div class="control">
                                         <input name="username"
-                                        value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                        value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
                                         id="popup-email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
                                         echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
                                     </div>
@@ -391,7 +391,7 @@ $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout');
                                             echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
                                         </div>
                                     </div>
-                                    <?php echo $block->getChildHtml('form_additional_info'); ?> 
+                                    <?= $block->getChildHtml('form_additional_info'); ?> 
                                     <div>
                                         <div class="actions-toolbar">
                                             <div class="primary">

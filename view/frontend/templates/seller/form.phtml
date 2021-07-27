@@ -2,9 +2,9 @@
 $helper        = $this->helper("Lof\SocialLogin\Helper\Data");
 $social_enable = json_decode($helper->getSocialPosition());
 $list_social   = [];
-foreach ($social_enable as $key => $v) {
+foreach ($social_enable as $key => $v):
 	array_push($list_social, $v->id);
-}
+endforeach;
 ?>
 <div class="lof-social-login-widget lof-social-customer lof-social-login lof-social-login-color">
 	<h3>

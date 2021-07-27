@@ -1,26 +1,25 @@
- <?php 
- $helper      = $this->helper('Lof\SocialLogin\Helper\Data');
- $style_popup = $helper->getConfigValue('sociallogin/general/popup_layout'); 
- $header_link = $helper->getConfigValue('sociallogin/general/header_link'); 
- $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
- $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+<?php 
+$helper      = $this->helper('Lof\SocialLogin\Helper\Data');
+$style_popup = $helper->getConfigValue('sociallogin/general/popup_layout'); 
+$header_link = $helper->getConfigValue('sociallogin/general/header_link'); 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
 
- if(!$customerSession->isLoggedIn()) {
+if(!$customerSession->isLoggedIn()):
    if ($block->isEnabled()): 
     ?>
-
-    <div id="social-login-popup" class="white-popup mfp-with-anim mfp-hide lof-social-login-color lof-social-login <?php echo $style_popup;?>">
-        <?php echo $block->getChildHtml('popup.authentication');?>
-        <?php echo $block->getChildHtml('popup.forgot') ?> 
-        <?php echo $block->getChildHtml('popup.create') ?>  
+    <div id="social-login-popup" class="white-popup mfp-with-anim mfp-hide lof-social-login-color lof-social-login <?= $style_popup;?>">
+        <?= $block->getChildHtml('popup.authentication');?>
+        <?= $block->getChildHtml('popup.forgot') ?> 
+        <?= $block->getChildHtml('popup.create') ?>  
     </div>
     <div style="clear: both"></div>
     <script>
         require(['lof/sociallogin/form'], function (SocialLoginForm) {
             var config = {
                 socialLoginPopup: '#social-login-popup',
-                popupEffect: '<?php echo $block->getPopupEffect()?>',
-                header: '<?php echo $header_link; ?>',
+                popupEffect: '<?= $block->getPopupEffect()?>',
+                header: '<?= $header_link; ?>',
                 section: '',
                 ajaxLoad: '#social-login-popup .ajax-loading', 
                 authentication: '.social-login.authentication',
@@ -29,24 +28,24 @@
                 btnAuthentication: '#bnt-social-login-authentication',
                 btnRemind: '#social-form-login .action.remind',
                 btnCreate: '#social-form-login .action.create',
-                formLoginUrl: '<?php echo $block->getFormLoginUrl();?>', 
+                formLoginUrl: '<?= $block->getFormLoginUrl();?>', 
                 socialLoginForgot: '.social-login.forgot',
                 socialLoginForgotContent: '.social-login.forgot',
                 socialFormPassword: '#social-form-password-forget',
                 btnSendForget: '#social-form-password-forget .action.send',
                 btnbackForget: '#social-form-password-forget .action.back',
-                forgotFormUrl: '<?php echo $block->getForgotFormUrl();?>',
+                forgotFormUrl: '<?= $block->getForgotFormUrl();?>',
                 socialLoginCreate: '.social-login.create',
                 socialLoginCreateContent: '.social-login.create',
                 socialFormCreate: '#social-form-create',
                 btnSocialFormCreate: '#social-form-create .action.create',
                 btnSocialFormCreateBack: '#social-form-create .action.back',
-                socialFormCreateUrl: '<?php echo $block->getCreateFormUrl();?>',  
+                socialFormCreateUrl: '<?= $block->getCreateFormUrl();?>',  
             };
             new SocialLoginForm(config);
         })
         require(['jquery', 'lof/sociallogin/popup'], function ($) {
-            $('<?php echo $header_link; ?>').magnificPopup({
+            $('<?= $header_link; ?>').magnificPopup({
                 delegate: 'a.social-login',
                 removalDelay: 500, //delay removal by X to allow out-animation
                 callbacks: {
@@ -71,4 +70,4 @@
 
     </script>
 <?php endif;
-} ?>
+endif; ?>
