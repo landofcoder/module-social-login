@@ -1,11 +1,30 @@
 {
-    "name": "landofcoder/module-social-login ",
+    "name": "landofcoder/module-social-login",
     "description": "SocialLogin Extension",
     "type": "magento2-module",
+    "require": {
+        "landofcoder/module-all" : "1.*",
+        "landofcoder/module-social-login-lib" : "1.*"
+    },
     "version": "1.0.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
+    ],
+    "keywords": [
+        "landofcoder",
+        "landofcoder SmsNotification",
+        "SmsNotification magento 2",
+        "magento 2 SmsNotification",
+        "SmsNotification magento 2",
+        "SmsNotification for magento 2"
+    ],
+    "authors": [
+        {
+            "name": "Landofcoder",
+            "email": "landofcoder@gmail.com",
+            "role": "Magento 2 Lof SmsNotification"
+        }
     ],
     "autoload": {
         "files": [ "registration.php" ],
