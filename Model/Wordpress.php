@@ -41,9 +41,9 @@ class Wordpress
         $url_to = 'https://public-api.wordpress.com/oauth2/authenticate' . '?' . http_build_query([
         'response_type' => 'code',
         'client_id'     => $this->dataHelper->getClientId(),
-        'state'         => $wpcc_state,
-        'redirect_uri'  => $this->dataHelper->getAuthUrl()
+        'state'         => $wpcc_state
         ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

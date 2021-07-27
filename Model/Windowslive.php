@@ -42,9 +42,9 @@ class Windowslive
         $url_to = 'https://login.live.com/oauth20_authorize.srf' . '?' . http_build_query([
                 'client_id'     => $this->dataHelper->getAppId(),
                 'scope'         => 'Wl.basic',
-                'response_type' => 'code',
-                'redirect_uri'  => $this->dataHelper->getAuthUrl()
+                'response_type' => 'code'
             ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

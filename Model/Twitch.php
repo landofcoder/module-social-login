@@ -43,9 +43,9 @@ class Twitch
                 'client_id'     => $this->dataHelper->getAppId(),
                 'scope'         => 'user_read',
                 'response_type' => 'code',
-                'redirect_uri'  => $this->dataHelper->getAuthUrl(),
                 'state'  => $wpcc_state
             ]);
+        $url_to .= '&redirect_uri='.$this->dataHelper->getAuthUrl();
         return $url_to;
     }
 }

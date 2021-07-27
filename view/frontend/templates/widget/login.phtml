@@ -53,7 +53,7 @@ if(!$customerSession->isLoggedIn() && $social_enable):
 	<?php } ?>
 	<div class="widget-content">
 		<div class="row">
-			<?php foreach($list_social as $key => $value) { ?>
+			<?php foreach($list_social as $key => $value): ?>
 			<?php
 			$title        = $helper->getConfigValue('sociallogin/' . $value . '/title_social');
 			$id           = 'btn_' . $value . '_login_widget' . time();
@@ -80,7 +80,7 @@ if(!$customerSession->isLoggedIn() && $social_enable):
 					});
 				</script> 
 			</div>
-			<?php } ?>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>

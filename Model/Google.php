@@ -22,18 +22,27 @@
 
 namespace Lof\SocialLogin\Model;
 
-use Magento\Framework\ObjectManagerInterface; 
+use Lof\SocialLogin\Helper\Github\Data as DataHelper;
 
 class Google
 {
-    protected $objectManagerInterface; 
+    protected $storeManagerInterface; 
+    
+    public function __construct(
+        DataHelper $dataHelper,
+        \Magento\Store\Model\StoreManagerInterface $storeManagerInterface
+    )
+    {
+        $this->dataHelper = $dataHelper;
+        $this->storeManagerInterface = $storeManagerInterface;
+    }
+
     public function getBaseUrl()
     {
-        $objectmanager     = \Magento\Framework\App\ObjectManager::getInstance();
-        $helper = $objectmanager->get('Magento\Store\Model\StoreManagerInterface')
-        ->getStore()
-        ->getBaseUrl();
+        $baseurl = $this->storeManagerInterface
+            ->getStore()
+            ->getBaseUrl();
 
-        return $helper.'lofsociallogin/google/callback';
+        return $baseurl.'lofsociallogin/google/callback';
     }
 }

@@ -146,7 +146,9 @@ class Social extends SocialLogin
      */
     public function getGoogleLoginUrl()
     {
-        return $this->getUrl('lofsociallogin/google/callback', ['_secure' => $this->isSecure()]);
+        $url = $this->getUrl('lofsociallogin/google/callback', ['_secure' => $this->isSecure()]);
+        $url = str_replace("callback/", "callback", $url);
+        return str_replace("/index.php", "", $url);
     } 
     /**
      * retrive form login url
@@ -223,7 +225,9 @@ class Social extends SocialLogin
      */
     public function getTwitterLoginUrl()
     {
-        return $this->getUrl('lofsociallogin/twitter/login', ['_secure' => $this->isSecure()]);
+        $url = $this->getUrl('lofsociallogin/twitter/login', ['_secure' => $this->isSecure()]);
+        $url = str_replace("callback/", "callback", $url);
+        return str_replace("/index.php", "", $url);
     }
  
     /**
