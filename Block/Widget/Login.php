@@ -38,7 +38,7 @@ class Login extends Social implements \Magento\Widget\Block\BlockInterface
     }
 
     public function checkLogin() {
-        return $this->_customerSession->isLoggedIn();
+        return $this->_customerSession->create()->isLoggedIn();
     } 
 
     public function getConfig($key, $default = '')

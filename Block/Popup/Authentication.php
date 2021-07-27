@@ -76,7 +76,7 @@ class Authentication extends Social
     public function getUsername()
     {
         if (-1 === $this->_username) {
-            $this->_username = $this->_customerSession->getUsername(true);
+            $this->_username = $this->_customerSession->create()->getUsername(true);
         }
         return $this->_username;
     }
