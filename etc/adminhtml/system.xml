@@ -50,6 +50,7 @@
                 </field>
                 <field id="redirect_page" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Reload URL</label>
+                    <comment>Add URL of the page after loggin account with social completely. Example: https://yourdomain/customer/dashboard</comment>
                 </field>
                 <field id="lg_column_item" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Number Column on Large Desktop</label>
