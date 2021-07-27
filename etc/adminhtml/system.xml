@@ -86,7 +86,7 @@
                     <label>Facebook App Id</label>
                     <comment><![CDATA[Register at : <href="https://developers.facebook.com/apps/?action=create" target="_blank">https://developers.facebook.com/apps/?action=create</a>]]></comment>
                 </field>
-                <field id="app_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="app_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Facebook App Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -115,7 +115,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://cloud.google.com/console]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -144,7 +144,7 @@
                     <label>Consumer Key</label>
                     <comment><![CDATA[Register at : https://apps.twitter.com/app/new]]></comment>
                 </field>
-                <field id="consumer_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="consumer_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Consumer Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -177,7 +177,7 @@
                     Config Call back url: https://[yourdomain]/lofsociallogin/wordpress/callback
                     ]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -206,7 +206,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://www.instagram.com/developer/clients/register/]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -235,7 +235,7 @@
                     <label>API Key</label>
                     <comment><![CDATA[Register at : https://www.linkedin.com/developer/apps]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Key</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -297,7 +297,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : http://stackapps.com/apps/oauth/]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -329,7 +329,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://developer.paypal.com/developer/applications]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -358,7 +358,7 @@
                     <label>API Key</label>
                     <comment><![CDATA[Register at : https://disqus.com/api/applications]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>API Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -387,7 +387,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://sellercentral.amazon.com/gp/homepage.html]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -416,7 +416,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://developers.pinterest.com/apps/]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -445,7 +445,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://developer.vimeo.com/apps]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -474,7 +474,7 @@
                     <label>App key</label>
                     <comment><![CDATA[Register at : https://www.dropbox.com/developers/apps]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>App secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -503,7 +503,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : http://soundcloud.com/you/apps]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -532,7 +532,7 @@
                     <label>Application Id</label>
                     <comment><![CDATA[Register at : https://apps.dev.microsoft.com/]]></comment>
                 </field>
-                <field id="app_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="app_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Application Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -561,7 +561,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://foursquare.com/developers/apps]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -590,7 +590,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://www.twitch.tv/kraken/oauth2/clients/new]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -619,7 +619,7 @@
                     <label>Client ID</label>
                     <comment><![CDATA[Register at : https://api.slack.com/apps]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -648,7 +648,7 @@
                     <label>App Key</label>
                     <comment><![CDATA[Register at : http://open.weibo.com/apps]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>App Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -677,7 +677,7 @@
                     <label>App ID</label>
                     <comment><![CDATA[Register at : https://open.weixin.qq.com/cgi-bin/frame?t=home/web_tmpl&lang=zh_CN]]></comment>
                 </field>
-                <field id="client_secret" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_secret" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>App Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
