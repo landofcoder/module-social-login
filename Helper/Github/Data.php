@@ -47,7 +47,7 @@ class Data extends HelperData
 
     public function getAuthUrl()
     {
-        $url = $this->_getUrl('lofsociallogin/github/callback/', ['_secure' => $this->isSecure()]);
+        $url = $this->_getUrl('lofsociallogin/github/callback', ['_secure' => $this->isSecure()]);
         return str_replace("/index.php","", $url);
     }
 }
