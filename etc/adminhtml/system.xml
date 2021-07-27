@@ -268,7 +268,7 @@
                     Call back url: https://[yourdomain]/lofsociallogin/github/callback
                     ]]></comment>
                 </field>
-                <field id="client_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="client_key" translate="label" type="password" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Client Secret</label>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
