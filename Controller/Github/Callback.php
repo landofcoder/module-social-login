@@ -131,7 +131,11 @@ class Callback extends Action
         curl_setopt($curl, CURLOPT_HTTPHEADER, [ 
             'Authorization: '.$token_type.' '. $access_token,
             'User-Agent: Landofcoder'
+<<<<<<< HEAD
          ]);
+=======
+        ]);
+>>>>>>> faf7f28cf7b0a9fa23006f1fe79f6269973e8733
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $dataUser =  json_decode(curl_exec($curl));
         $data = [];
@@ -141,6 +145,10 @@ class Callback extends Action
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
         };
+        echo "<pre>";
+        print_r($secret);
+        echo "</pre><pre>";
+        print_r($dataUser);die();
         $user_id = $dataUser && isset($dataUser->id)?$dataUser->id:0;
         $customerId = $this->getCustomerIdByGithubId($user_id);
         if ($customerId) {
