@@ -138,8 +138,9 @@ class Callback extends Action
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
         };
-        if ($dataUser && isset($dataUser->id)) {
-            $customerId = $this->getCustomerIdByGithubId($dataUser->id);
+        $user_id = $dataUser && isset($dataUser->id)?$dataUser->id:0;
+        $customerId = $this->getCustomerIdByGithubId($user_id);
+        if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
             if ($customer->getConfirmation()) {
@@ -172,17 +173,17 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && ($user_id || isset($dataUser->email))) {
             if (isset($dataUser->email)) {
-                $data['id'] = isset($dataUser->id)?$dataUser->id:0;
+                $data['id'] = $user_id;
                 $data['email']= $dataUser->email;
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser->name;
                 $data['last_name']  = '.';
             } else {
-                $data['id'] = $dataUser->id;
-                $data['email']= $dataUser->id.'@github.com';
+                $data['id'] = $user_id;
+                $data['email']= $user_id.'@github.com';
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser->name;
