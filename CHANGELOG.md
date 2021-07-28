@@ -2,3 +2,4 @@
 - Fix issues with redirect url
 - Update module settings comments
 - Compatible with Landofcoder Marketplace Extension
+- Fix issue with login via github, waibo, wechat
