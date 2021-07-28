@@ -164,8 +164,6 @@ class Callback extends Action
             $visitor->save();
             $this->_eventManager->dispatch('visitor_init', ['visitor' => $visitor]);
             $this->_eventManager->dispatch('visitor_activity_save', ['visitor' => $visitor]);
-            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
-            exit;
         }
         if ($dataUser && ($user_id || isset($dataUser->email))) {
             if (isset($dataUser->email)) {
@@ -212,8 +210,9 @@ class Callback extends Action
                 $this->messageManager->addSuccess(__('Login successful.'));
                 $this->session->regenerateId();
             }
-            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
         }
+        echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
+        exit;
     }
 
     public function getCustomerIdByWordpressId($wordpressId)
