@@ -126,7 +126,7 @@ class Callback extends Action
         }
         $secret = json_decode($auth);
         $access_token = $secret->access_token;
-        $curl = curl_init('https://api.github.com/user?access_token='.$access_token);
+        $curl = curl_init('https://api.github.com/user');
         curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'Authorization: token  '. $access_token ]);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'User-Agent: Landofcoder' ]);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
