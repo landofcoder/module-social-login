@@ -138,9 +138,6 @@ class Callback extends Action
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
         };
-        echo "<pre>";
-        print_r($dataUser);
-        die();
         if ($dataUser && isset($dataUser->id)) {
             $customerId = $this->getCustomerIdByGithubId($dataUser->id);
             $customer = $this->customerRepository->getById($customerId);
