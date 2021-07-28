@@ -129,8 +129,10 @@ class Callback extends Action
         $access_token = $secret->access_token;
         $openId       = $secret->openid;
         $curl = curl_init('https://api.weixin.qq.com/sns/auth?access_token='.$access_token.'&openid='.$openId);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'Authorization: token  '. $access_token ]);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'User-Agent: Landofcoder' ]);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [ 
+            'Authorization: token  '. $access_token,
+            'User-Agent: Landofcoder'
+        ]);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $dataUser =  json_decode(curl_exec($curl));
         $data = [];

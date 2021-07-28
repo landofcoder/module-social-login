@@ -128,8 +128,10 @@ class Callback extends Action
         $secret = json_decode($auth); 
         $access_token = $secret->access_token;
         $curl = curl_init('https://api.weibo.com/2/statuses/public_timeline.json?access_token='.$access_token);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'Authorization: token  '. $access_token ]);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'User-Agent: Landofcoder' ]);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [ 
+            'Authorization: token  '. $access_token,
+            'User-Agent: Landofcoder'
+        ]);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $dataUser =  json_decode(curl_exec($curl));
         $data = [];
