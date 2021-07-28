@@ -139,8 +139,9 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $customerId = $this->getCustomerIdBySoundcloudId($dataUser->id);
+        };
+        $user_id = ($dataUser && isset($dataUser->id))?$secret->id:"";
+        $customerId = $this->getCustomerIdBySoundcloudId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -174,9 +175,9 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
-            $data['id'] = $dataUser->id;
-            $data['email']= $dataUser->id.'@soundcloud.com';
+        if ($dataUser && $user_id) {
+            $data['id'] = $user_id;
+            $data['email']= $user_id.'@soundcloud.com';
             $data['password'] =  $this->socialHelper->createPassword();
             $data['password_confirmation'] = $data['password'];
             $data['first_name'] = $dataUser->first_name;

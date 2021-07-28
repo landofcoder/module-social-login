@@ -102,8 +102,9 @@ class Callback extends Action
             echo curl_error($curl);
         }
         $secret = json_decode($auth);
-        $access_token = $secret->access_token;
-        $user_id = $secret->user_id;
+        $user_id = ($secret && isset($secret->user_id))?$secret->user_id:"";
+        $access_token = $secret && isset($secret->access_token)?$secret->access_token:"";
+        
         $curl = curl_init('https://slack.com/api/users.profile.get');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
@@ -111,7 +112,8 @@ class Callback extends Action
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
             'Content-Type: application/x-www-form-urlencoded',
         ]);
-        $dataUser = json_decode(curl_exec($curl))->profile;
+        $respondData1 = json_decode(curl_exec($curl));
+        $dataUser = $respondData1 && isset($respondData1->profile)?$respondData1->profile:[];
 
         $curl = curl_init('https://slack.com/api/auth.test');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -120,7 +122,8 @@ class Callback extends Action
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
             'Content-Type: application/x-www-form-urlencoded',
         ]);
-        $username = json_decode(curl_exec($curl))->user;
+        $respondData2 = json_decode(curl_exec($curl));
+        $username = $respondData2 && isset($respondData2->username)?$respondData2->username:"";
         $data = [];
         $redirect = $this->socialHelper->getConfig(('general/redirect_page'));
         if(empty($redirect)){
@@ -128,6 +131,7 @@ class Callback extends Action
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
         };
+        
         $customerId = $this->getCustomerIdBySlackId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);

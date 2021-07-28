@@ -140,7 +140,8 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
+        };
+        $user_id = ($dataUser && isset($dataUser->uid))?$dataUser->uid:0;
         $customerId = $this->getCustomerIdByDropboxId($dataUser->uid);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
@@ -174,9 +175,9 @@ class Callback extends Action
             $this->_eventManager->dispatch('visitor_activity_save', ['visitor' => $visitor]);
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
         }
-        if ($dataUser) {
+        if ($dataUser && ($user_id || isset($dataUser->email))) {
             if (isset($dataUser->email)) {
-                $data['id'] = $dataUser->uid;
+                $data['id'] = $user_id;
                 $data['email']= $dataUser->email;
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];

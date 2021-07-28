@@ -108,8 +108,9 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $customerId = $this->getCustomerIdByInstagramId($dataUser->user->id);
+        };
+        $user_id = ($dataUser && isset($dataUser->user) && isset($dataUser->user->id))?$dataUser->user->id:0;
+        $customerId = $this->getCustomerIdByInstagramId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -144,12 +145,12 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
-            $data['id'] = $dataUser->user->id;
+        if ($dataUser && ($user_id || (isset($dataUser->user) && isset($dataUser->user->username)))) {
+            $data['id'] = $user_id;
             $data['email']= $dataUser->user->username.'@instagram.com';
             $data['password']              =  $this->socialHelper->createPassword();
             $data['password_confirmation'] = $data['password'];
-            $data['first_name']             = $dataUser->user->full_name;
+            $data['first_name']             = isset($dataUser->user->full_name)?$dataUser->user->full_name:"";
             $data['last_name']              = '.';
             $store_id   = $this->storeManager->getStore()->getStoreId();
             $website_id = $this->storeManager->getStore()->getWebsiteId();

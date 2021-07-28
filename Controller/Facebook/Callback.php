@@ -107,8 +107,8 @@ class Callback extends Action
             $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $accessToken->getValue()); 
             $dataUser = $response->getdecodedBody(); 
             $data = [];
-             
-            $customerId = $this->getCustomerIdByFacebookId($dataUser['id']);
+            $user_id = ($dataUser && isset($dataUser["id"]))?$dataUser["id"]:0; 
+            $customerId = $this->getCustomerIdByFacebookId($user_id);
             if ($customerId) {
                 $customer = $this->customerRepository->getById($customerId);
                 $customer1 = $this->customerFactory->create()->load($customerId);
@@ -143,7 +143,7 @@ class Callback extends Action
                 exit;
             }
 
-            if ($dataUser) {
+            if ($dataUser && ($user_id || isset($dataUser["email"]))) {
                 if (isset($dataUser['email'])) {
                     $data['id'] = $dataUser['id'];
                     $data['email']= $dataUser['email'];

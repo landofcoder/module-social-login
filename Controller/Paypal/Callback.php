@@ -136,9 +136,10 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $arrayId = explode('user', $dataUser->user_id);
-        $id = $arrayId[1];
+        };
+        $user_id = ($dataUser && isset($dataUser->user_id))?$dataUser->user_id:"";
+        $arrayId = $user_id?explode('user', $user_id):[];
+        $id = isset($arrayId[1])?$arrayId[1]:0;
         $customerId = $this->getCustomerIdByPaypalId($id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
@@ -173,7 +174,7 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && ($id || isset($dataUser->email))) {
             if (isset($dataUser->email)) {
                 $data['id'] = $id;
                 $data['email']= $dataUser->email;

@@ -133,8 +133,9 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $customerId = $this->getCustomerIdByAmazonId($dataUser->user_id);
+        };
+        $user_id = ($dataUser && isset($dataUser->user_id))?$dataUser->user_id:0;
+        $customerId = $this->getCustomerIdByAmazonId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -168,7 +169,7 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && $user_id) {
             $data['id'] = $dataUser->user_id;
             $data['email']= $dataUser->email;
             $data['password'] =  $this->socialHelper->createPassword();

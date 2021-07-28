@@ -138,8 +138,9 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $customerId = $this->getCustomerIdByPinterestId($dataUser->id);
+        };
+        $user_id = ($dataUser && isset($dataUser->id))?$dataUser->id:"";
+        $customerId = $this->getCustomerIdByPinterestId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -173,9 +174,9 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && ($user_id || isset($dataUser->emailAddress))) {
             if (isset($dataUser->emailAddress)) {
-                $data['id'] = $dataUser->id;
+                $data['id'] = $user_id;
                 $data['email']= $dataUser->emailAddress;
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];

@@ -116,7 +116,8 @@ class Callback extends Action
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
         };
-        $customerId = $this->getCustomerIdByFoursquareId($dataUser->id);
+        $user_id = ($dataUser && isset($dataUser->id))?$dataUser->id:0;
+        $customerId = $this->getCustomerIdByFoursquareId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -150,7 +151,7 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && ($user_id || (isset($dataUser->contact) && isset($dataUser->contact->email)))) {
             if (isset($dataUser->contact->email)) {
                 $data['id'] = $dataUser->id;
                 $data['email']= $dataUser->contact->email;

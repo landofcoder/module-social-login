@@ -109,7 +109,8 @@ class Callback extends Action
         };
         $dataUser = (array)$dataUser;
         $data = [];
-        $customerId = $this->getCustomerIdByTwitterId($dataUser['id']);
+        $user_id = ($dataUser && isset($dataUser['id']))?$dataUser['id']:""; 
+        $customerId = $this->getCustomerIdByTwitterId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -147,16 +148,16 @@ class Callback extends Action
             exit;
         }
 
-        if ($dataUser) {
+        if ($dataUser && ($user_id || isset($dataUser["email"]))) {
             if (isset($dataUser['email']) && $dataUser['email']!='') {
-                $data['id'] = $dataUser['id'];
+                $data['id'] = $user_id;
                 $data['email']= $dataUser['email'];
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser['name'];
                 $data['last_name']  = '.';
             } else {
-              $data['id'] = $dataUser['id'];
+              $data['id'] = $user_id;
               $data['email']= $dataUser['screen_name'].'@twitter.com';
               $data['password'] =  $this->socialHelper->createPassword();
               $data['password_confirmation'] = $data['password'];

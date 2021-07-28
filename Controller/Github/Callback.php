@@ -137,9 +137,12 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $customerId = $this->getCustomerIdByGithubId($dataUser->id);
-        if ($customerId) {
+        };
+        echo "<pre>";
+        print_r($dataUser);
+        die();
+        if ($dataUser && isset($dataUser->id)) {
+            $customerId = $this->getCustomerIdByGithubId($dataUser->id);
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
             if ($customer->getConfirmation()) {
@@ -174,7 +177,7 @@ class Callback extends Action
         }
         if ($dataUser) {
             if (isset($dataUser->email)) {
-                $data['id'] = $dataUser->id;
+                $data['id'] = isset($dataUser->id)?$dataUser->id:0;
                 $data['email']= $dataUser->email;
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];

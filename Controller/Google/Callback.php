@@ -104,6 +104,7 @@ class Callback extends Action
                 ]
             ]
         ];
+        $dataUser = null;
         try {    
             $hybridauth = new Hybridauth( $config ); 
             $adapter = $hybridauth->authenticate( 'Google' ); 
@@ -121,8 +122,9 @@ class Callback extends Action
             $link_redirect = "window.opener.location= '".$redirect."';";
         };  
         $data = [];
-        $customerId = $this->getCustomerIdByGoogleId($dataUser['identifier']);
-        if ($customerId) {
+        $identifier = isset($dataUser['identifier'])?$dataUser['identifier']:0;
+        $customerId = $this->getCustomerIdByGoogleId($identifier);
+        if ($customerId && $dataUser) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
             if ($customer->getConfirmation()) {
@@ -155,7 +157,7 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && isset($dataUser['identifier'])) {
             $data['id']                    = $dataUser['identifier'];
             $data['email']                 = $dataUser['email']; 
             $data['password']              =  $this->socialHelper->createPassword();

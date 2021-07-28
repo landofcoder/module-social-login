@@ -127,15 +127,15 @@ class Callback extends Action
         curl_setopt($curl, CURLOPT_HTTPHEADER, [ 'Authorization: Bearer ' . $access_token ]);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $dataUser = json_decode(curl_exec($curl));
-        $array_user = explode('users/', $dataUser->uri);
-        $user_vimeo_id = $array_user[1];
+        $array_user = isset($dataUser->uri)?explode('users/', $dataUser->uri):[];
+        $user_vimeo_id = isset($array_user[1])?$array_user[1]:0;
         $data = [];
         $redirect = $this->socialHelper->getConfig(('general/redirect_page'));
         if(empty($redirect)){
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
+        };
         $customerId = $this->getCustomerIdByVimeoId($user_vimeo_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
@@ -170,7 +170,7 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && $user_vimeo_id) {
             $data['id'] = $user_vimeo_id;
             $data['email']= $user_vimeo_id.'@vimeo.com';
             $data['password'] =  $this->socialHelper->createPassword();

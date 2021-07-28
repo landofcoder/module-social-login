@@ -138,8 +138,9 @@ class Callback extends Action
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
-        $customerId = $this->getCustomerIdByWeiboId($dataUser->id);
+        };
+        $user_id = $dataUser && isset($dataUser->id)?$dataUser->id:0;
+        $customerId = $this->getCustomerIdByWeiboId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -173,17 +174,17 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
             exit;
         } 
-        if ($dataUser) {
+        if ($dataUser && ($user_id || isset($dataUser->email))) {
             if (isset($dataUser->email)) {
-                $data['id'] = $dataUser->id;
+                $data['id'] = $user_id;
                 $data['email']= $dataUser->email;
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser->name;
                 $data['last_name']  = '.';
             } else {
-                $data['id'] = $dataUser->id;
-                $data['email']= $dataUser->id.'@weibo.com';
+                $data['id'] = $user_id;
+                $data['email']= $user_id.'@weibo.com';
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser->name;

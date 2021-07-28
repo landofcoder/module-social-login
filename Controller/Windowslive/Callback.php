@@ -117,7 +117,8 @@ class Callback extends Action
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
         };
-        $customerId = $this->getCustomerIdByWindowsliveId($dataUser->id);
+        $user_id = $dataUser && isset($dataUser->id)?$dataUser->id:0;
+        $customerId = $this->getCustomerIdByWindowsliveId($user_id);
         if ($customerId) {
             $customer = $this->customerRepository->getById($customerId);
             $customer1 = $this->customerFactory->create()->load($customerId);
@@ -151,17 +152,17 @@ class Callback extends Action
             echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
             exit;
         }
-        if ($dataUser) {
+        if ($dataUser && ($user_id || isset($dataUser->emailAddress))) {
             if (isset($dataUser->emailAddress)) {
-                $data['id'] = $dataUser->id;
+                $data['id'] = $user_id;
                 $data['email']= $dataUser->emailAddress;
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser->firstName;
                 $data['last_name']  = $dataUser->lastName;
             } else {
-                $data['id'] = $dataUser->id;
-                $data['email']= $dataUser->id.'@outlook.com';
+                $data['id'] = $user_id;
+                $data['email']= $user_id.'@outlook.com';
                 $data['password'] =  $this->socialHelper->createPassword();
                 $data['password_confirmation'] = $data['password'];
                 $data['first_name'] = $dataUser->first_name;
