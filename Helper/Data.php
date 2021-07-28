@@ -31,6 +31,7 @@ use Magento\Customer\Model\Session;
 use Lof\SocialLogin\Model\Social;
 use Lof\SocialLogin\Model\Config;
 use Magento\Customer\Api\AccountManagementInterface;
+use Magento\Customer\Api\CustomerRepositoryInterface;
 
 class Data extends AbstractHelper
 {
@@ -67,12 +68,17 @@ class Data extends AbstractHelper
     protected $storeManager;
     protected $objectManager;
     protected $_social;
+    protected $customerRepositoryInterface;
 
     /**
      * @param Context                $context
      * @param ObjectManagerInterface $objectManager
-     * @param CustomerFactory        $customerFactory
-     * @param StoreManagerInterface  $storeManager
+     * @param CustomerInterfaceFactory $customerFactory
+     * @param Session $customerSession
+     * @param Social $social
+     * @param AccountManagementInterface $accountManagement
+     * @param StoreManagerInterface $storeManager
+     * @param CustomerRepositoryInterface $customerRepositoryInterface
      */
     public function __construct(
         Context $context,
@@ -81,7 +87,8 @@ class Data extends AbstractHelper
         Session $customerSession,
         Social $social,
         AccountManagementInterface $accountManagement,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        CustomerRepositoryInterface $customerRepositoryInterface
     ) {
         $this->objectManager     = $objectManager;
         $this->customerFactory   = $customerFactory;
@@ -89,6 +96,7 @@ class Data extends AbstractHelper
         $this->_customerSession  = $customerSession;
         $this->_social           = $social;
         $this->accountManagement = $accountManagement;
+        $this->customerRepositoryInterface = $customerRepositoryInterface;
         parent::__construct($context);
     }
 
@@ -159,21 +167,12 @@ class Data extends AbstractHelper
 
     /**
      * @param string $email
-     * @return bool|\Magento\Customer\Model\Customer
+     * @return bool|\Magento\Customer\Api\Data\CustomerInterface
      */
     public function getCustomerByEmail($email, $websiteId = null)
     {
-        /** @var \Magento\Customer\Model\Customer $customer */
-        $customer = $this->objectManager->create(
-            'Magento\Customer\Model\Customer'
-        );
-        if (!$websiteId) {
-            $customer->setWebsiteId($this->storeManager->getWebsite()->getId());
-        } else {
-            $customer->setWebsiteId($websiteId);
-        }
-        $customer->loadByEmail($email);
-
+        /** @var CustomerRepositoryInterface */
+        $customer = $this->customerRepositoryInterface->get($email, $websiteId);
         if ($customer->getId()) {
             return $customer;
         }
