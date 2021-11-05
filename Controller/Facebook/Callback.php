@@ -15,7 +15,7 @@ use Lof\SocialLogin\Model\ResourceModel\Social\CollectionFactory as FacebookColl
 use Magento\Customer\Model\CustomerFactory;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Model\Visitor;
-use Lof\SocialLogin\Model\Facebook\Facebook; 
+use Lof\SocialLogin\Model\Facebook\Facebook;
 
 class Callback extends Action
 {
@@ -78,7 +78,7 @@ class Callback extends Action
         $fb = $this->facebook->newFacebook();
         if($fb && is_object($fb)) {
             $helper = $fb->getRedirectLoginHelper();
-            $_SESSION['FBRLH_state']=$_GET['state'];
+            $_SESSION['FBRLH_state']= isset($_GET['state'])?$_GET['state']:1;
             try {
               $accessToken = $helper->getAccessToken();
             } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -103,11 +103,11 @@ class Callback extends Action
                 echo 'Bad request';
               }
               exit;
-            } 
-            $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $accessToken->getValue()); 
-            $dataUser = $response->getdecodedBody(); 
+            }
+            $response = $fb->get('/me?fields=id,name,email,first_name,last_name', $accessToken->getValue());
+            $dataUser = $response->getdecodedBody();
             $data = [];
-            $user_id = ($dataUser && isset($dataUser["id"]))?$dataUser["id"]:0; 
+            $user_id = ($dataUser && isset($dataUser["id"]))?$dataUser["id"]:0;
             $customerId = $this->getCustomerIdByFacebookId($user_id);
             if ($customerId) {
                 $customer = $this->customerRepository->getById($customerId);
@@ -124,7 +124,7 @@ class Callback extends Action
                     $metadata = $this->getCookieMetadataFactory()->createCookieMetadata();
                     $metadata->setPath('/');
                     $this->getCookieManager()->deleteCookie('mage-cache-sessid', $metadata);
-                } 
+                }
                 $this->messageManager->addSuccess(__('Login successful.'));
                 $this->session->regenerateId();
                 $this->session->setCustomerDataAsLoggedIn($customer);
@@ -139,7 +139,7 @@ class Callback extends Action
                 $visitor->save();
                 $this->_eventManager->dispatch('visitor_init', ['visitor' => $visitor]);
                 $this->_eventManager->dispatch('visitor_activity_save', ['visitor' => $visitor]);
-                echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
+                echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
                 exit;
             }
 
@@ -191,10 +191,10 @@ class Callback extends Action
                         $this->session->regenerateId();
                     //}
                 }
-                echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
+                echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
             }
         } else {
-            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
+            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
                 exit;
         }
     }
