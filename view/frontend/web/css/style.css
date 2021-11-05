@@ -135,7 +135,7 @@
     opacity: 0;
 }
 
-/* 
+/*
 
 ====== Newspaper effect ======
 
@@ -170,7 +170,7 @@
     opacity: 0;
 }
 
-/* 
+/*
 
 ====== Move-horizontal effect ======
 
@@ -204,7 +204,7 @@
     opacity: 0;
 }
 
-/* 
+/*
 
 ====== Move-from-top effect ======
 
@@ -243,7 +243,7 @@
     opacity: 0;
 }
 
-/* 
+/*
 
 ====== 3d unfold ======
 
@@ -282,7 +282,7 @@
     opacity: 0;
 }
 
-/* 
+/*
 
 ====== Zoom-out effect ======
 
@@ -776,5 +776,10 @@
   overflow: auto;
    max-height: 100%;
     overflow-y: scroll;
-} 
+}
 
+.header.links img {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+}

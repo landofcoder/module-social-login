@@ -171,10 +171,14 @@ class Data extends AbstractHelper
      */
     public function getCustomerByEmail($email, $websiteId = null)
     {
-        /** @var CustomerRepositoryInterface */
-        $customer = $this->customerRepositoryInterface->get($email, $websiteId);
-        if ($customer->getId()) {
-            return $customer;
+        try {
+            /** @var CustomerRepositoryInterface */
+            $customer = $this->customerRepositoryInterface->get($email, $websiteId);
+            if ($customer->getId()) {
+                return $customer;
+            }
+        } catch (\Exception $e) {
+            //
         }
 
         return false;
