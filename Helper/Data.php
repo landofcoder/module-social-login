@@ -160,6 +160,13 @@ class Data extends AbstractHelper
         $postion = $this->getGeneralConfig('social_position', $storeId);
         return $postion;
     }
+
+    /**
+     * get custom css
+     *
+     * @param mixed $storeId
+     * @return mixed
+     */
     public function getCustomCss($storeId = null)
     {
         return $this->getGeneralConfig('custom_css', $storeId);
@@ -174,15 +181,24 @@ class Data extends AbstractHelper
         try {
             /** @var CustomerRepositoryInterface */
             $customer = $this->customerRepositoryInterface->get($email, $websiteId);
-            if ($customer->getId()) {
+            if (!empty($customer) && $customer->getId()) {
                 return $customer;
             }
         } catch (\Exception $e) {
             //
+            return false;
         }
 
         return false;
     }
+
+    /**
+     * get customer by id
+     *
+     * @param int $id
+     * @param mixed $websiteId
+     * @return \Magento\Customer\Model\Customer|bool
+     */
     public function getCustomerById($id, $websiteId = null)
     {
         /** @var \Magento\Customer\Model\Customer $customer */
@@ -224,6 +240,11 @@ class Data extends AbstractHelper
         return $customer;
     }
 
+    /**
+     * is secure
+     *
+     * @return bool
+     */
     public function isSecure()
     {
         $isSecure = $this->getConfigValue(self::XML_PATH_SECURE_IN_FRONTEND);
@@ -231,6 +252,11 @@ class Data extends AbstractHelper
         return $isSecure;
     }
 
+    /**
+     * get edit url
+     *
+     * @return string
+     */
     public function getEditUrl()
     {
         $isSecure = $this->isSecure();
@@ -238,7 +264,13 @@ class Data extends AbstractHelper
         return $this->_getUrl('customer/account/edit', ['_secure' => $isSecure]);
     }
 
-    public function getCustomer(){
+    /**
+     * Get current logged in customer
+     *
+     * @return \Magento\Customer\Model\Customer|mixed
+     */
+    public function getCustomer()
+    {
         $customer = $this->_customerSession->getCustomer();
         $socialCustomer = $this->_social->getCollection()->addFieldToFilter('customer_id', $customer->getId())->getFirstItem();
         if($socialCustomer && $socialCustomer->getId()){
@@ -250,6 +282,12 @@ class Data extends AbstractHelper
         return $this->_customerSession->getCustomer();
     }
 
+    /**
+     * Get customer photo
+     *
+     * @param \Magento\Customer\Model\Customer
+     * @return string
+     */
     public function getCustomerPhoto($customer)
     {
         $type        = $customer->getType();
@@ -350,26 +388,32 @@ class Data extends AbstractHelper
     {
         return $this->getConfigValue(self::XML_PATH_WORDPRESS_STYLE_MANAGEMENT, $storeId);
     }
+
     public function getStyleColorWindowslive($storeId = null)
     {
         return $this->getConfigValue(self::XML_PATH_WINDOWSLIVE_STYLE_MANAGEMENT, $storeId);
     }
+
     public function getStyleColorFoursquare($storeId = null)
     {
         return $this->getConfigValue(self::XML_PATH_FOURSQUARE_STYLE_MANAGEMENT, $storeId);
     }
+
     public function getStyleColorTwitch($storeId = null)
     {
         return $this->getConfigValue(self::XML_PATH_TWITCH_STYLE_MANAGEMENT, $storeId);
     }
+
     public function getStyleColorSlack($storeId = null)
     {
         return $this->getConfigValue(self::XML_PATH_SLACK_STYLE_MANAGEMENT, $storeId);
     }
+
     public function getStyleColorWeibo($storeId = null)
     {
         return $this->getConfigValue(self::XML_PATH_WEIBO_STYLE_MANAGEMENT, $storeId);
     }
+
     public function getStyleColorWechat($storeId = null)
     {
         return $this->getConfigValue(self::XML_PATH_WECHAT_STYLE_MANAGEMENT, $storeId);
