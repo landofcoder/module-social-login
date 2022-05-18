@@ -67,6 +67,9 @@ class Callback extends Action
         $this->visitor                           = $visitor;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function execute()
     {
         $redirect = $this->dataHelper->getConfig('general/redirect_page');

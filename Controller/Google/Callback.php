@@ -77,7 +77,7 @@ class Callback extends Action
         CustomerRepositoryInterface $customerRepository,
         Session $customerSession,
         Visitor $visitor
-        ) {
+    ) {
         parent::__construct($context);
         $this->google                          = $google;
         $this->storeManager                    = $storeManager;
@@ -93,34 +93,37 @@ class Callback extends Action
         $this->visitor                         = $visitor;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function execute()
     {
         $config = [
             'callback' => $this->google->getBaseUrl(),
-            'providers' => [ 
-                'Google' => [ 
+            'providers' => [
+                'Google' => [
                     'enabled' => true,
                     'keys'    => [ 'id' => $this->getGoogleHelper()->getClientId(), 'secret' => $this->getGoogleHelper()->getClientSecret() ],
                 ]
             ]
         ];
         $dataUser = null;
-        try {    
-            $hybridauth = new Hybridauth( $config ); 
-            $adapter = $hybridauth->authenticate( 'Google' ); 
+        try {
+            $hybridauth = new Hybridauth( $config );
+            $adapter = $hybridauth->authenticate( 'Google' );
             $tokens = $adapter->getAccessToken();
-            $dataUser = (array)$adapter->getUserProfile(); 
+            $dataUser = (array)$adapter->getUserProfile();
             $adapter->disconnect();
         }
         catch (\Exception $e) {
             echo $e->getMessage();
-        }    
+        }
         $redirect = $this->socialHelper->getConfig(('general/redirect_page'));
         if(empty($redirect)){
             $link_redirect = "window.opener.location.reload();";
         }else{
             $link_redirect = "window.opener.location= '".$redirect."';";
-        };  
+        };
         $data = [];
         $identifier = isset($dataUser['identifier'])?$dataUser['identifier']:0;
         $customerId = $this->getCustomerIdByGoogleId($identifier);
@@ -142,7 +145,7 @@ class Callback extends Action
             }
             $this->session->setCustomerDataAsLoggedIn($customer);
             $this->messageManager->addSuccess(__('Login successful.'));
-            $this->session->regenerateId(); 
+            $this->session->regenerateId();
             $this->_eventManager->dispatch('customer_data_object_login', ['customer' => $customer]);
             $this->_eventManager->dispatch('customer_login', ['customer' => $customer1]);
 
@@ -154,12 +157,12 @@ class Callback extends Action
             $visitor->save();
             $this->_eventManager->dispatch('visitor_init', ['visitor' => $visitor]);
             $this->_eventManager->dispatch('visitor_activity_save', ['visitor' => $visitor]);
-            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
+            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
             exit;
         }
         if ($dataUser && isset($dataUser['identifier'])) {
             $data['id']                    = $dataUser['identifier'];
-            $data['email']                 = $dataUser['email']; 
+            $data['email']                 = $dataUser['email'];
             $data['password']              =  $this->socialHelper->createPassword();
             $data['password_confirmation'] = $data['password'];
             $data['first_name']            = $dataUser['firstName'];
@@ -185,7 +188,7 @@ class Callback extends Action
                 $this->customerUrl->getEmailConfirmationUrl($customer->getEmail());
                 // @codingStandardsIgnoreStart
                 $this->messageManager->addSuccess(
-                    __( 
+                    __(
                         'You must confirm your account. Please check your email for the confirmation link or <a href="%1">click here</a> for a new link.',
                         $email
                     )
@@ -195,7 +198,7 @@ class Callback extends Action
                 $this->messageManager->addSuccess(__('Login successful.'));
                 $this->session->regenerateId();
             }
-            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>"; 
+            echo "<script type=\"text/javascript\">window.close();".$link_redirect."</script>";
         }
     }
 
