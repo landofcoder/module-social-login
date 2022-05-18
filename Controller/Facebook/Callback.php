@@ -52,7 +52,7 @@ class Callback extends Action
         CustomerRepositoryInterface $customerRepository,
         Session $customerSession,
         Visitor $visitor
-        ) {
+    ) {
         parent::__construct($context);
         $this->facebook                          = $facebook;
         $this->storeManager                      = $storeManager;
@@ -78,7 +78,7 @@ class Callback extends Action
         $fb = $this->facebook->newFacebook();
         if($fb && is_object($fb)) {
             $helper = $fb->getRedirectLoginHelper();
-            $_SESSION['FBRLH_state']= isset($_GET['state'])?$_GET['state']:1;
+            $_SESSION['FBRLH_state']= isset($_GET['state']) ? $_GET['state'] : 1;
             try {
               $accessToken = $helper->getAccessToken();
             } catch(Facebook\Exceptions\FacebookResponseException $e) {
